@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <title>R.N.G Profile</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background-color: #000000;
+      color: #fbfffb;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #000000;
+      color: white;
+      padding: 40px 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+   .profile-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;         
+  object-fit: cover;           
+  border: 3px solid white;
+  background-color: rgb(12, 11, 5);     
+  box-shadow: 0 0 15px rgba(57, 68, 70, 0.875); 
+}
+
+
+
+    .header-text {
+      flex-grow: 1;
+    }
+
+    .header-text h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+.orange-name {
+  color: rgb(215, 130, 12);
+}
+
+   
+nav {
+  background: #030303;
+  padding: 10px 0;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  background-color: #11505b;
+  padding: 10px 20px;
+  margin: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 8px;
+  display: inline-block;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #1db954;
+  color: white;
+}
+
+
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #ba02f7;
+      margin-bottom: 20px;
+    }
+strong {
+  color: rgb(10, 216, 10);
+}
+
+    .skills ul, .projects ul {
+      list-style: none;
+      color: #090a09;
+      padding-left: 0;
+    }
+
+    .skills li, .projects li {
+      background: #ecf0f1;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-left: 4px solid #2980b9;
+    }
+    
+
+    .contact form {
+      display: grid;
+      gap: 10px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px;
+      background: #2980b9;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1c5980;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #2c3e50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Landing Page -->
+  <header>
+  <img src="https://mobile.technicalhub.io:5010/student/22MH1A0557.png" alt="Profile Picture" class="profile-img" />
+  <div class="header-text">
+    <h1><em><u >NAME :- </u><span class="orange-name">RAMIREDDY NAGA GANESH</span></em></h1>
+ <h3><em><u style="color: rgb(234, 240, 234);">Bio :-</u></em></h3>
+   <p class="bio">
+  I am a final-year B.Tech CSE student at <strong>Aditya University</strong> with skills in  <strong>programming, full-stack web development, and cloud computing</strong>. Passionate about tech innovation, I have hands-on experience as an <strong>AWS Cloud Developer</strong> and aim to build scalable, efficient solutions.
+</p>
+
+
+  </div>
+</header>
+
+<nav>
+  <a href="#about"><i class="fas fa-user" style="margin-right: 6px;"></i>About</a>
+  <a href="#skills"><i class="fas fa-tools" style="margin-right: 6px;"></i>Skills</a>
+  <a href="#projects"><i class="fas fa-folder-open" style="margin-right: 6px;"></i>Projects</a>
+  <a href="#Badge&Certification"><i class="fas fa-certificate" style="margin-right: 6px;"></i>Badge & Certification</a>
+  <a href="#internship"><i class="fas fa-briefcase" style="margin-right: 6px;"></i>Internship</a>
+  <a href="#Education"><i class="fas fa-graduation-cap" style="margin-right: 6px;"></i>Education</a>
+  <a href="#contact"><i class="fas fa-envelope" style="margin-right: 6px;"></i>Contact</a>
+</nav>
+
+
+
+
+<section id="about">
+  <h2><i class="fas fa-user" style="margin-right: 6px;"></i>About Me</h2>
+  <p>
+    I am a final-year B.Tech CSE student with a strong interest in software development, cloud computing, and DevOps. I have experience in full-stack web development and building solutions using AWS services. My programming skills include <strong>Java</strong>, <strong>Python</strong>, <strong>C</strong>, and <strong>C++</strong>. I also have a solid understanding of <strong>Computer Networks</strong>, <strong>Database Management Systems (DBMS)</strong>, and <strong>System Design</strong> — including both <strong>High-Level Design (HLD)</strong> and <strong>Low-Level Design (LLD)</strong>. I enjoy solving real-world problems and working in collaborative environments, and I’m eager to grow as a Software Development Engineer (SDE).
+  </p>
+</section>
+
+
+
+
+<section id="skills" class="skills">
+  <h2><i class="fas fa-tools" style="margin-right: 6px;"></i>Skills & Experience</h2>
+  <ul>
+    <li><strong style="color: rgb(3, 60, 28);"><i class="fas fa-code" style="margin-right: 8px;"></i>Frontend:</strong> HTML, CSS, JavaScript, React.js, Bootstrap, Tailwind CSS</li>
+    <li><strong style="color: rgb(3, 60, 28);"><i class="fas fa-server" style="margin-right: 8px;"></i>Backend:</strong> Node.js, Express.js, RESTful APIs</li>
+    <li><strong style="color: rgb(3, 60, 28);"><i class="fas fa-database" style="margin-right: 8px;"></i>Database:</strong> MySQL, MongoDB, PostgreSQL, Firebase</li>
+    <li><strong style="color: rgb(3, 60, 28);"><i class="fas fa-cloud" style="margin-right: 8px;"></i>AWS & Cloud:</strong> EC2, S3, IAM, Lambda, CloudWatch, AWS CLI, AWS Cloud Developer</li>
+    <li><strong style="color: rgb(3, 60, 28);"><i class="fas fa-tools" style="margin-right: 8px;"></i>DevOps Tools:</strong> Git, GitHub, CI/CD, Docker, Linux, Terraform, Shell Scripting</li>
+    <li><strong style="color: rgb(3, 60, 28);"><i class="fas fa-laptop-code" style="margin-right: 8px;"></i>SDE Core:</strong> Java, Python, C, C++, Data Structures and Algorithms, OOPs, DBMS, Computer Networks, System Design (HLD & LLD)</li>
+    <li><strong style="color: rgb(3, 60, 28);"><i class="fas fa-users" style="margin-right: 8px;"></i>Soft Skills:</strong> Communication, Team Collaboration, Agile Methodologies</li>
+  </ul>
+</section>
+
+
+
+  
+  <section id="projects" class="projects">
+  <h2><i class="fas fa-folder-open" style="margin-right: 6px;"></i>Projects & Achievements</h2>
+  <div  class="rng"style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+   <strong style="color: rgb(219, 243, 6);">
+  <i class="fas fa-graduation-cap" style="margin-right: 8px; color: green; font-size: 20px;"></i>
+  E-Learning Website
+</strong>
+
+    <a href="https://your-elearning-link.com" target="_blank">
+      <button style="padding: 6px 12px; background-color: #2980b9; color: white; border: none; border-radius: 4px; cursor: pointer;">
+        View Project
+      </button>
+    </a>
+  </div>
+  <p style="margin-bottom: 20px;">
+  Built a fully responsive E-Learning web platform using <strong>HTML, CSS, JavaScript</strong> and <strong>React.js</strong>.<br>
+  Integrated public APIs and used custom-built <strong>form compilers</strong> for quizzes and user input.<br>
+  Implemented user authentication, course enrollment, and real-time progress tracking.<br>
+  Focused on performance and smooth user experience with modular and reusable components.
+</p>
+
+
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+   <strong style="color: rgb(219, 243, 6);">
+  <i class="fas fa-shopping-cart" style="margin-right: 8px; color: green; font-size: 20px;"></i>
+  E-Commerce Platform
+</strong>
+
+    <a href="file:///C:/Users/ramir/OneDrive/Desktop/speed%20shop/stationery.html" target="_blank">
+      <button style="padding: 6px 12px; background-color: #2980b9; color: white; border: none; border-radius: 4px; cursor: pointer;">
+        View Project
+      </button>
+    </a>
+  </div>
+  <p style="margin-bottom: 20px;">
+    Created a dynamic e-commerce site using MERN stack (MongoDB, Express, React, Node.js).<br>
+    Implemented features like product filtering, shopping cart, and checkout system.<br>
+    Integrated Stripe for secure payment processing and order tracking.<br>
+    Built an admin panel for product management and analytics.
+  </p>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+   <strong style="color: rgb(219, 243, 6);">
+  <i class="fas fa-robot" style="margin-right: 8px; color: green; font-size: 20px;"></i>
+  AI-Powered Chatbot
+</strong>
+ <a href="file:///C:/Users/ramir/OneDrive/Desktop/speed%20shop/index.html" target="_blank">
+      <button style="padding: 6px 12px; background-color: #2980b9; color: white; border: none; border-radius: 4px; cursor: pointer;">
+        View Project
+      </button>
+    </a>
+  </div>
+  <p style="margin-bottom: 20px;">
+    Designed and developed an intelligent chatbot interface using <strong>React.js, JavaScript, HTML, and CSS</strong>.<br>
+    Integrated with AI APIs for real-time conversation and dynamic responses.<br>
+    Created a user-friendly UI with message bubbles, typing indicators, and scroll behavior.<br>
+    Optimized for use across web applications and scalable for various business needs.
+  </p>
+
+<section id="Badge&Certification">
+  <h2><i class="fas fa-certificate" style="margin-right: 6px;"></i>Badge & Certification</h2>
+
+  <ul style="list-style: none; padding-left: 0;">
+    <li style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+      <span><i class="fas fa-cloud" style="color: #3498db; margin-right: 8px;"></i><strong style="color: green;">Cloud Foundations</strong></span>
+      <a href="https://www.credly.com/badges/a195c5b5-f04e-478e-a889-91bcabeb24be/public_url" target="_blank">
+        <button style="padding: 6px 12px; background-color: #2980b9; color: white; border: none; border-radius: 4px;">View Certificate</button>
+      </a>
+    </li>
+
+    <li style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+      <span><i class="fas fa-shield-alt" style="color: #e67e22; margin-right: 8px;"></i><strong style="color: green;">Cloud Security Builder</strong></span>
+      <a href="https://www.credly.com/badges/78bef568-412c-4af6-9d8a-c68f06dfa2ae/public_url" target="_blank">
+        <button style="padding: 6px 12px; background-color: #2980b9; color: white; border: none; border-radius: 4px;">View Certificate</button>
+      </a>
+    </li>
+
+    <li style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+      <span><i class="fas fa-code" style="color: #16a085; margin-right: 8px;"></i><strong style="color: green;">Cloud Developing</strong></span>
+      <a href="https://www.credly.com/badges/67db68d8-17f8-4e31-a649-273fc3e09ad8/public_url" target="_blank">
+        <button style="padding: 6px 12px; background-color: #2980b9; color: white; border: none; border-radius: 4px;">View Certificate</button>
+      </a>
+    </li>
+
+    <li style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+      <span><i class="fab fa-aws" style="color: #f39c12; margin-right: 8px;"></i><strong style="color: green;">AWS Certified Developer Associate</strong></span>
+      <a href="https://www.credly.com/badges/326f51c2-ef96-44da-87fb-efca6c6c5f03/public_url" target="_blank">
+        <button style="padding: 6px 12px; background-color: #2980b9; color: white; border: none; border-radius: 4px;">View Certificate</button>
+      </a>
+    </li>
+
+    <li style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+      <span><i class="fas fa-network-wired" style="color: #8e44ad; margin-right: 8px;"></i><strong style="color:green;">CCNA: Introduction to Networks</strong></span>
+      <a href="https://www.credly.com/badges/e10428d2-3750-4a3c-8028-fa3120ce221f/public_url" target="_blank">
+        <button style="padding: 6px 12px; background-color: #2980b9; color: white; border: none; border-radius: 4px;">View Certificate</button>
+      </a>
+    </li>
+
+    <li style="display: flex; justify-content: space-between; align-items: center;">
+      <span><i class="fab fa-linux" style="color: #2c3e50; margin-right: 8px;"></i><strong style="color: green;">Linux Unhatched</strong></span>
+      <a href="#" target="_blank">
+        <button style="padding: 6px 12px; background-color: #2980b9; color: white; border: none; border-radius: 4px;">View Certificate</button>
+      </a>
+    </li>
+  </ul>
+</section>
+<section id="internship">
+  <h2><i class="fas fa-briefcase" style="margin-right: 6px;"></i>Internship</h2>
+  <ul style="list-style: none; padding-left: 0;">
+    <li style="margin-bottom: 10px;">
+      <i class="fab fa-aws" style="color: #FF9900; margin-right: 8px;"></i>
+      <strong>AWS Developer Trainee</strong> – Gained hands-on experience with AWS services like EC2, Lambda, S3, IAM, and CloudWatch. Built and deployed scalable cloud applications using best practices.
+    </li>
+  </ul>
+</section>
+
+<section id="Education">
+  <h2><i class="fas fa-graduation-cap" style="margin-right: 6px;"></i>Education</h2>
+  <ul style="list-style: none; padding-left: 0;">
+    <li style="margin-bottom: 10px;">
+       <i class="fas fa-laptop-code" style="color: #16a085; margin-right: 8px;"></i>
+      <strong>B.Tech in CSE:</strong> Aditya University, Surampalem — <span style="color: green;"><strong>7.5 CGPA</strong></span> (2022–2026, Pursuing Final Year)
+    </li>
+    
+    <li style="margin-bottom: 10px;">
+      <i class="fas fa-university" style="color: #2980b9; margin-right: 8px;"></i>
+      <strong>Intermediate (MPC):</strong> Sri Pratibha Junior College, Ongole — <span style="color: green;"><strong>68.9%</strong></span> (Completed in 2022)
+    </li>
+ <li style="margin-bottom: 10px;">
+      <i class="fas fa-school" style="color: #2c3e50; margin-right: 8px;"></i>
+      <strong>10th (SSC):</strong> ST. Arnold's High School, Medarametla — <span style="color: green;"><strong>70.1%</strong></span> (Completed in 2020)
+    </li>
+    
+  </ul>
+</section>
+
+
+
+  
+  <section id="contact" class="contact">
+  <h2><i class="fas fa-envelope" style="margin-right: 6px;"></i>Contact Me</h2>
+
+  <p><strong><i class="fas fa-phone" style="color: green; margin-right: 8px;"></i>Contact No:</strong> 9346660931</p>
+
+  <p><strong><i class="fas fa-envelope" style="color: #D44638; margin-right: 8px;"></i>Email:</strong>
+    <a href="mailto:ramireddyganigani@gmail.com">ramireddyganigani@gmail.com</a>
+  </p>
+
+  <p>
+    <strong><i class="fab fa-linkedin" style="color: #0e76a8; margin-right: 8px;"></i>LinkedIn:</strong>
+    <a href="https://www.linkedin.com/in/naga-ganesh-ramireddy-b49654253"
+       target="_blank" style="color: #0e76a8; font-weight: bold;">
+      RAMIREDDY NAGA GANESH
+    </a>
+  </p>
+
+  <p>
+    <strong><i class="fab fa-github" style="color: #eae7e7; margin-right: 8px;"></i>GitHub:</strong>
+    <a href="https://github.com/NagaGaneshRamiReddy"
+       target="_blank" style="color: #124870; font-weight: bold;">
+      RAMIREDDY NAGA GANESH
+    </a>
+  </p>
+
+ 
+</section>
+
+
+
+  
