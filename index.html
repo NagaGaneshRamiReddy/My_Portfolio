@@ -1,367 +1,961 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramireddy Naga Ganesh - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <title>R.N.G Profile</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Segoe UI", sans-serif;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+        }
 
-    body {
-      background-color: #000000;
-      color: #fbfffb;
-      line-height: 1.6;
-    }
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-    header {
-      background: #000000;
-      color: white;
-      padding: 40px 20px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-   .profile-img {
-  width: 200px;
-  height: 200px;
-  border-radius: 10px;         
-  object-fit: cover;           
-  border: 3px solid white;
-  background-color: rgb(12, 11, 5);     
-  box-shadow: 0 0 15px rgba(57, 68, 70, 0.875); 
-}
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
 
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-weight: 500;
+        }
 
-    .header-text {
-      flex-grow: 1;
-    }
+        nav a:hover {
+            opacity: 0.8;
+        }
 
-    .header-text h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-.orange-name {
-  color: rgb(215, 130, 12);
-}
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 150px 2rem 100px;
+            text-align: center;
+            margin-top: 60px;
+        }
 
-   
-nav {
-  background: #030303;
-  padding: 10px 0;
-  text-align: center;
-}
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
 
-nav a {
-  color: white;
-  background-color: #11505b;
-  padding: 10px 20px;
-  margin: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 14px;
-  border-radius: 8px;
-  display: inline-block;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
 
-nav a:hover {
-  background-color: #1db954;
-  color: white;
-}
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
 
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+        }
 
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
 
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
 
-    h2 {
-      color: #ba02f7;
-      margin-bottom: 20px;
-    }
-strong {
-  color: rgb(10, 216, 10);
-}
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
 
-    .skills ul, .projects ul {
-      list-style: none;
-      color: #090a09;
-      padding-left: 0;
-    }
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
 
-    .skills li, .projects li {
-      background: #ecf0f1;
-      margin-bottom: 10px;
-      padding: 10px;
-      border-left: 4px solid #2980b9;
-    }
-    
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 2rem;
+        }
 
-    .contact form {
-      display: grid;
-      gap: 10px;
-    }
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #667eea;
+        }
 
-    input, textarea {
-      padding: 10px;
-      width: 100%;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
 
-    button {
-      padding: 10px;
-      background: #2980b9;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+        /* About Section */
+        .about-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
 
-    button:hover {
-      background: #1c5980;
-    }
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #2c3e50;
-      color: white;
-    }
-  </style>
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .skill-category li:last-child {
+            border-bottom: none;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+        }
+
+        .project-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-body {
+            padding: 2rem;
+        }
+
+        .project-body p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s;
+        }
+
+        .cert-card:hover {
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+        }
+
+        .cert-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Education & Internship */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 2rem;
+            width: 15px;
+            height: 15px;
+            background: #667eea;
+            border-radius: 50%;
+        }
+
+        .timeline-item h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .date {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9ff;
+            border-radius: 10px;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .contact-item h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-item a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #667eea;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 60px 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">RNG</div>
+            <ul id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </nav>
+    </header>
 
-  <!-- Landing Page -->
-  <header>
-  <img src="https://mobile.technicalhub.io:5010/student/22MH1A0557.png" alt="Profile Picture" class="profile-img" />
-  <div class="header-text">
-    <h1><em><u >NAME :- </u><span class="orange-name">RAMIREDDY NAGA GANESH</span></em></h1>
- <h3><em><u style="color: rgb(234, 240, 234);">Bio :-</u></em></h3>
-   <p class="bio">
-  I am a final-year B.Tech CSE student at <strong>Aditya University</strong> with skills in  <strong>programming, full-stack web development, and cloud computing</strong>. Passionate about tech innovation, I have hands-on experience as an <strong>AWS Cloud Developer</strong> and aim to build scalable, efficient solutions.
-</p>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div style="margin-bottom: 2rem;">
+            <img src="https://mobile.technicalhub.io:5010/student/22MH1A0557.png" alt="Ramireddy Naga Ganesh" style="width: 180px; height: 180px; border-radius: 50%; border: 5px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.3); object-fit: cover;">
+        </div>
+        <h1>RAMIREDDY NAGA GANESH</h1>
+        <p>AWS Cloud Developer | Full Stack Developer | B.Tech CSE Student</p>
+        <p style="font-size: 1.1rem;">Passionate about building scalable, efficient solutions with cloud computing and modern web technologies</p>
+        <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">Get In Touch</a>
+            <a href="#projects" class="btn btn-secondary">View Projects</a>
+            <a href="#" class="btn btn-primary" onclick="viewResume(); return false;">View Resume</a>
+            <a href="#" class="btn btn-secondary" onclick="downloadResume(); return false;">Download Resume</a>
+        </div>
+    </section>
 
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <p>I am a final-year B.Tech CSE student at Aditya University with a strong interest in software development, cloud computing, and DevOps. I have hands-on experience in full-stack web development and building solutions using AWS services.</p>
+            <p>My programming expertise includes Java, Python, C, and C++, and I have a solid understanding of Computer Networks, Database Management Systems (DBMS), and System Design — including both High-Level Design (HLD) and Low-Level Design (LLD).</p>
+            <p>I enjoy solving real-world problems and working in collaborative environments, and I'm eager to grow as a Software Development Engineer (SDE). With experience as an AWS Cloud Developer, I aim to build scalable, efficient solutions that drive innovation in the tech industry.</p>
+        </div>
+    </section>
 
-  </div>
-</header>
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills & Experience</h2>
+        <p class="section-subtitle">Technical expertise across multiple domains</p>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Frontend Development</h3>
+                <ul>
+                    <li>HTML5 & CSS3</li>
+                    <li>JavaScript (ES6+)</li>
+                    <li>React.js</li>
+                    <li>Bootstrap</li>
+                    <li>Tailwind CSS</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Backend Development</h3>
+                <ul>
+                    <li>Node.js</li>
+                    <li>Express.js</li>
+                    <li>RESTful APIs</li>
+                    <li>API Integration</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Database Management</h3>
+                <ul>
+                    <li>MySQL</li>
+                    <li>MongoDB</li>
+                    <li>PostgreSQL</li>
+                    <li>Firebase</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>AWS & Cloud</h3>
+                <ul>
+                    <li>EC2 & S3</li>
+                    <li>IAM & Lambda</li>
+                    <li>CloudWatch</li>
+                    <li>AWS CLI</li>
+                    <li>Cloud Architecture</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>DevOps Tools</h3>
+                <ul>
+                    <li>Git & GitHub</li>
+                    <li>CI/CD Pipelines</li>
+                    <li>Docker</li>
+                    <li>Linux</li>
+                    <li>Terraform</li>
+                    <li>Shell Scripting</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Programming & Core</h3>
+                <ul>
+                    <li>Java & Python</li>
+                    <li>C & C++</li>
+                    <li>Data Structures & Algorithms</li>
+                    <li>OOPs Concepts</li>
+                    <li>DBMS</li>
+                    <li>Computer Networks</li>
+                    <li>System Design (HLD & LLD)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-<nav>
-  <a href="#about"><i class="fas fa-user" style="margin-right: 6px;"></i>About</a>
-  <a href="#skills"><i class="fas fa-tools" style="margin-right: 6px;"></i>Skills</a>
-  <a href="#projects"><i class="fas fa-folder-open" style="margin-right: 6px;"></i>Projects</a>
-  <a href="#Badge&Certification"><i class="fas fa-certificate" style="margin-right: 6px;"></i>Badge & Certification</a>
-  <a href="#internship"><i class="fas fa-briefcase" style="margin-right: 6px;"></i>Internship</a>
-  <a href="#Education"><i class="fas fa-graduation-cap" style="margin-right: 6px;"></i>Education</a>
-  <a href="#contact"><i class="fas fa-envelope" style="margin-right: 6px;"></i>Contact</a>
-</nav>
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects & Achievements</h2>
+        <p class="section-subtitle">Real-world applications showcasing my technical skills</p>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Terraform AWS Infrastructure Project</h3>
+                </div>
+                <div class="project-body">
+                    <p>Automated deployment of AWS infrastructure using Terraform, including EC2 instances, an Application Load Balancer (ALB), and an S3 bucket. The project demonstrates Infrastructure as Code (IaC), scalable architecture, and secure cloud setup.</p>
+                    <p><strong>Key Features:</strong></p>
+                    <ul style="margin-left: 1.5rem; color: #666;">
+                        <li>Infrastructure as Code (IaC) implementation</li>
+                        <li>EC2 instances with auto-scaling</li>
+                        <li>Application Load Balancer configuration</li>
+                        <li>S3 bucket for storage management</li>
+                        <li>VPC and Security Groups setup</li>
+                        <li>IAM roles and policies</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="margin-top: 1rem;">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>CI/CD Pipeline with GitHub Actions + AWS S3</h3>
+                </div>
+                <div class="project-body">
+                    <p>Developed a static web application using HTML, CSS, and JavaScript and implemented an automated CI/CD pipeline using GitHub Actions to deploy the application to AWS S3 as a static website.</p>
+                    <p><strong>Key Features:</strong></p>
+                    <ul style="margin-left: 1.5rem; color: #666;">
+                        <li>Automated CI/CD pipeline</li>
+                        <li>GitHub Actions integration</li>
+                        <li>AWS S3 static website hosting</li>
+                        <li>IAM roles and S3 bucket policies</li>
+                        <li>Secure automated deployments</li>
+                        <li>Trigger on code commits</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="margin-top: 1rem;">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>E-Learning Website</h3>
+                </div>
+                <div class="project-body">
+                    <p>Built a fully responsive E-Learning web platform using HTML, CSS, JavaScript and React.js. Integrated public APIs and used custom-built form compilers for quizzes and user input.</p>
+                    <p><strong>Key Features:</strong></p>
+                    <ul style="margin-left: 1.5rem; color: #666;">
+                        <li>User authentication system</li>
+                        <li>Course enrollment management</li>
+                        <li>Real-time progress tracking</li>
+                        <li>Modular and reusable components</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="margin-top: 1rem;">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>E-Commerce Platform</h3>
+                </div>
+                <div class="project-body">
+                    <p>Created a dynamic e-commerce site using MERN stack (MongoDB, Express, React, Node.js) with complete shopping functionality.</p>
+                    <p><strong>Key Features:</strong></p>
+                    <ul style="margin-left: 1.5rem; color: #666;">
+                        <li>Product filtering & search</li>
+                        <li>Shopping cart & checkout system</li>
+                        <li>Stripe payment integration</li>
+                        <li>Admin panel for management</li>
+                        <li>Order tracking & analytics</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="margin-top: 1rem;">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>AI-Powered Chatbot</h3>
+                </div>
+                <div class="project-body">
+                    <p>Designed and developed an intelligent chatbot interface using React.js, JavaScript, HTML, and CSS with AI API integration.</p>
+                    <p><strong>Key Features:</strong></p>
+                    <ul style="margin-left: 1.5rem; color: #666;">
+                        <li>Real-time conversation</li>
+                        <li>Dynamic AI responses</li>
+                        <li>User-friendly UI with message bubbles</li>
+                        <li>Typing indicators</li>
+                        <li>Scalable architecture</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="margin-top: 1rem;">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <h2>Badges & Certifications</h2>
+        <p class="section-subtitle">Professional certifications validating my expertise</p>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <div class="cert-icon">☁️</div>
+                <div>
+                    <h4>Cloud Foundations</h4>
+                    <a href="#" style="color: #667eea; text-decoration: none;">View Certificate →</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">🔒</div>
+                <div>
+                    <h4>Cloud Security Builder</h4>
+                    <a href="#" style="color: #667eea; text-decoration: none;">View Certificate →</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">⚙️</div>
+                <div>
+                    <h4>Cloud Developing</h4>
+                    <a href="#" style="color: #667eea; text-decoration: none;">View Certificate →</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">🎓</div>
+                <div>
+                    <h4>AWS Certified Developer Associate</h4>
+                    <a href="#" style="color: #667eea; text-decoration: none;">View Certificate →</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">🌐</div>
+                <div>
+                    <h4>CCNA: Introduction to Networks</h4>
+                    <a href="#" style="color: #667eea; text-decoration: none;">View Certificate →</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">🐧</div>
+                <div>
+                    <h4>Linux Unhatched</h4>
+                    <a href="#" style="color: #667eea; text-decoration: none;">View Certificate →</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Internship & Education Section -->
+    <section id="education">
+        <h2>Education & Experience</h2>
+        
+        <h3 style="color: #667eea; margin-top: 3rem; margin-bottom: 1rem;">Internship</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>AWS Developer Trainee</h3>
+                <div class="date">Cloud Development Internship</div>
+                <p>Gained hands-on experience with AWS services like EC2, Lambda, S3, IAM, and CloudWatch. Built and deployed scalable cloud applications using industry best practices and cloud-native architecture patterns.</p>
+            </div>
+        </div>
 
+        <h3 style="color: #667eea; margin-top: 3rem; margin-bottom: 1rem;">Education</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>B.Tech in Computer Science & Engineering</h3>
+                <div class="date">Aditya University, Surampalem | 2022 – 2026 (Final Year)</div>
+                <p><strong>CGPA:</strong> 7.5/10</p>
+                <p>Specializing in software development, cloud computing, and system design with strong foundation in core CS subjects.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Intermediate (MPC)</h3>
+                <div class="date">Sri Pratibha Junior College, Ongole | 2022</div>
+                <p><strong>Percentage:</strong> 68.9%</p>
+            </div>
+            <div class="timeline-item">
+                <h3>10th Grade (SSC)</h3>
+                <div class="date">ST. Arnold's High School, Medarametla | 2020</div>
+                <p><strong>Percentage:</strong> 70.1%</p>
+            </div>
+        </div>
+    </section>
 
-<section id="about">
-  <h2><i class="fas fa-user" style="margin-right: 6px;"></i>About Me</h2>
-  <p>
-    I am a final-year B.Tech CSE student with a strong interest in software development, cloud computing, and DevOps. I have experience in full-stack web development and building solutions using AWS services. My programming skills include <strong>Java</strong>, <strong>Python</strong>, <strong>C</strong>, and <strong>C++</strong>. I also have a solid understanding of <strong>Computer Networks</strong>, <strong>Database Management Systems (DBMS)</strong>, and <strong>System Design</strong> — including both <strong>High-Level Design (HLD)</strong> and <strong>Low-Level Design (LLD)</strong>. I enjoy solving real-world problems and working in collaborative environments, and I’m eager to grow as a Software Development Engineer (SDE).
-  </p>
-</section>
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p class="section-subtitle">Let's connect and build something amazing together</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">📱</div>
+                <h3>Phone</h3>
+                <a href="tel:+919346660931">+91 9346660931</a>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">✉️</div>
+                <h3>Email</h3>
+                <a href="mailto:ramireddyganigani@gmail.com">ramireddyganigani@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">💼</div>
+                <h3>LinkedIn</h3>
+                <a href="https://linkedin.com/in/ramireddy-naga-ganesh" target="_blank">RAMIREDDY NAGA GANESH</a>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">💻</div>
+                <h3>GitHub</h3>
+                <a href="https://github.com/ramireddy-naga-ganesh" target="_blank">RAMIREDDY NAGA GANESH</a>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Ramireddy Naga Ganesh. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">Built with passion for technology and innovation</p>
+    </footer>
 
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
 
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            if (navMenu.style.display === 'flex') {
+                navMenu.style.display = 'none';
+            } else {
+                navMenu.style.display = 'flex';
+                navMenu.style.flexDirection = 'column';
+                navMenu.style.position = 'absolute';
+                navMenu.style.top = '60px';
+                navMenu.style.right = '0';
+                navMenu.style.background = '#667eea';
+                navMenu.style.padding = '1rem';
+                navMenu.style.borderRadius = '10px';
+            }
+        });
 
-<section id="skills" class="skills">
-  <h2><i class="fas fa-tools" style="margin-right: 6px;"></i>Skills & Experience</h2>
-  <ul>
-    <li><strong style="color: rgb(3, 60, 28);"><i class="fas fa-code" style="margin-right: 8px;"></i>Frontend:</strong> HTML, CSS, JavaScript, React.js, Bootstrap, Tailwind CSS</li>
-    <li><strong style="color: rgb(3, 60, 28);"><i class="fas fa-server" style="margin-right: 8px;"></i>Backend:</strong> Node.js, Express.js, RESTful APIs</li>
-    <li><strong style="color: rgb(3, 60, 28);"><i class="fas fa-database" style="margin-right: 8px;"></i>Database:</strong> MySQL, MongoDB, PostgreSQL, Firebase</li>
-    <li><strong style="color: rgb(3, 60, 28);"><i class="fas fa-cloud" style="margin-right: 8px;"></i>AWS & Cloud:</strong> EC2, S3, IAM, Lambda, CloudWatch, AWS CLI, AWS Cloud Developer</li>
-    <li><strong style="color: rgb(3, 60, 28);"><i class="fas fa-tools" style="margin-right: 8px;"></i>DevOps Tools:</strong> Git, GitHub, CI/CD, Docker, Linux, Terraform, Shell Scripting</li>
-    <li><strong style="color: rgb(3, 60, 28);"><i class="fas fa-laptop-code" style="margin-right: 8px;"></i>SDE Core:</strong> Java, Python, C, C++, Data Structures and Algorithms, OOPs, DBMS, Computer Networks, System Design (HLD & LLD)</li>
-    <li><strong style="color: rgb(3, 60, 28);"><i class="fas fa-users" style="margin-right: 8px;"></i>Soft Skills:</strong> Communication, Team Collaboration, Agile Methodologies</li>
-  </ul>
-</section>
+        // Resume functions
+        function viewResume() {
+            // Create modal overlay
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                z-index: 10000;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+            `;
 
+            const content = document.createElement('div');
+            content.style.cssText = `
+                background: white;
+                padding: 30px;
+                border-radius: 15px;
+                max-width: 900px;
+                width: 100%;
+                max-height: 90vh;
+                overflow-y: auto;
+                position: relative;
+            `;
 
+            content.innerHTML = `
+                <button onclick="this.closest('div[style*=\"position: fixed\"]').remove()" style="position: absolute; top: 20px; right: 20px; background: #667eea; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 20px;">×</button>
+                <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+                    <div style="text-align: center; margin-bottom: 30px; border-bottom: 3px solid #667eea; padding-bottom: 20px;">
+                        <h1 style="color: #667eea; margin: 0; font-size: 2.5rem;">RAMIREDDY NAGA GANESH</h1>
+                        <p style="margin: 10px 0; color: #666;">
+                            📍 KAKINADA | 📧 ramireddyganigani@gmail.com | 📱 9346660931
+                        </p>
+                        <p style="margin: 5px 0;">
+                            <a href="https://github.com/ramireddy-naga-ganesh" style="color: #667eea; margin: 0 10px;">GitHub</a> |
+                            <a href="https://linkedin.com/in/ramireddy-naga-ganesh" style="color: #667eea; margin: 0 10px;">LinkedIn</a> |
+                            <a href="#" style="color: #667eea; margin: 0 10px;">Portfolio</a>
+                        </p>
+                    </div>
 
-  
-  <section id="projects" class="projects">
-  <h2><i class="fas fa-folder-open" style="margin-right: 6px;"></i>Projects & Achievements</h2>
-  <div  class="rng"style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-   <strong style="color: rgb(219, 243, 6);">
-  <i class="fas fa-graduation-cap" style="margin-right: 8px; color: green; font-size: 20px;"></i>
-  E-Learning Website
-</strong>
+                    <div style="margin-bottom: 25px;">
+                        <h2 style="color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 5px;">Summary</h2>
+                        <p>Motivated Computer Science student specializing in AWS Cloud and DevOps, skilled in managing cloud infrastructure, automating deployments, and implementing CI/CD pipelines using tools like AWS CloudFormation, Docker, Jenkins, and Git. Knowledgeable in system design, monitoring, and cost optimization, with experience deploying scalable applications and building reliable, secure cloud systems.</p>
+                    </div>
 
-    <a href="https://your-elearning-link.com" target="_blank">
-      <button style="padding: 6px 12px; background-color: #2980b9; color: white; border: none; border-radius: 4px; cursor: pointer;">
-        View Project
-      </button>
-    </a>
-  </div>
-  <p style="margin-bottom: 20px;">
-  Built a fully responsive E-Learning web platform using <strong>HTML, CSS, JavaScript</strong> and <strong>React.js</strong>.<br>
-  Integrated public APIs and used custom-built <strong>form compilers</strong> for quizzes and user input.<br>
-  Implemented user authentication, course enrollment, and real-time progress tracking.<br>
-  Focused on performance and smooth user experience with modular and reusable components.
-</p>
+                    <div style="margin-bottom: 25px;">
+                        <h2 style="color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 5px;">Technical Skills</h2>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="margin: 8px 0;"><strong>Cloud & Infrastructure:</strong> AWS (EC2, S3, RDS, IAM, Lambda, CloudFormation, CloudWatch)</li>
+                            <li style="margin: 8px 0;"><strong>DevOps & CI/CD:</strong> Jenkins, GitHub Actions, Docker, Kubernetes (basic)</li>
+                            <li style="margin: 8px 0;"><strong>Infrastructure as Code (IaC):</strong> Terraform, AWS CloudFormation</li>
+                            <li style="margin: 8px 0;"><strong>Monitoring & Observability:</strong> AWS CloudWatch, Prometheus, Grafana</li>
+                            <li style="margin: 8px 0;"><strong>Scripting & Automation:</strong> Python, Bash</li>
+                            <li style="margin: 8px 0;"><strong>Version Control:</strong> Git, GitHub, GitLab</li>
+                            <li style="margin: 8px 0;"><strong>Operating Systems:</strong> Linux (Ubuntu, Amazon Linux), Windows</li>
+                        </ul>
+                    </div>
 
+                    <div style="margin-bottom: 25px;">
+                        <h2 style="color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 5px;">Education</h2>
+                        <div style="margin: 10px 0;">
+                            <h3 style="margin: 5px 0; color: #333;">Aditya University, Surampalem</h3>
+                            <p style="margin: 5px 0;"><strong>B.Tech in Computer Science and Engineering</strong> | CGPA: 7.4/10</p>
+                        </div>
+                    </div>
 
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-   <strong style="color: rgb(219, 243, 6);">
-  <i class="fas fa-shopping-cart" style="margin-right: 8px; color: green; font-size: 20px;"></i>
-  E-Commerce Platform
-</strong>
+                    <div style="margin-bottom: 25px;">
+                        <h2 style="color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 5px;">Projects & Experience</h2>
+                        
+                        <div style="margin: 20px 0;">
+                            <h3 style="color: #333; margin: 10px 0;">1. CI/CD Pipeline with GitHub Actions + AWS S3</h3>
+                            <p>Developed a static web application using HTML, CSS, and JavaScript and implemented an automated CI/CD pipeline using GitHub Actions to deploy the application to AWS S3 as a static website. Configured IAM roles and S3 bucket policies to enable secure, automated deployments. Achieved consistent and repeatable deployments by triggering the pipeline on every code commit.</p>
+                            <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript, GitHub Actions, AWS S3, IAM, CI/CD</p>
+                        </div>
 
-    <a href="file:///C:/Users/ramir/OneDrive/Desktop/speed%20shop/stationery.html" target="_blank">
-      <button style="padding: 6px 12px; background-color: #2980b9; color: white; border: none; border-radius: 4px; cursor: pointer;">
-        View Project
-      </button>
-    </a>
-  </div>
-  <p style="margin-bottom: 20px;">
-    Created a dynamic e-commerce site using MERN stack (MongoDB, Express, React, Node.js).<br>
-    Implemented features like product filtering, shopping cart, and checkout system.<br>
-    Integrated Stripe for secure payment processing and order tracking.<br>
-    Built an admin panel for product management and analytics.
-  </p>
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-   <strong style="color: rgb(219, 243, 6);">
-  <i class="fas fa-robot" style="margin-right: 8px; color: green; font-size: 20px;"></i>
-  AI-Powered Chatbot
-</strong>
- <a href="file:///C:/Users/ramir/OneDrive/Desktop/speed%20shop/index.html" target="_blank">
-      <button style="padding: 6px 12px; background-color: #2980b9; color: white; border: none; border-radius: 4px; cursor: pointer;">
-        View Project
-      </button>
-    </a>
-  </div>
-  <p style="margin-bottom: 20px;">
-    Designed and developed an intelligent chatbot interface using <strong>React.js, JavaScript, HTML, and CSS</strong>.<br>
-    Integrated with AI APIs for real-time conversation and dynamic responses.<br>
-    Created a user-friendly UI with message bubbles, typing indicators, and scroll behavior.<br>
-    Optimized for use across web applications and scalable for various business needs.
-  </p>
+                        <div style="margin: 20px 0;">
+                            <h3 style="color: #333; margin: 10px 0;">2. Terraform-Based AWS Infrastructure Automation</h3>
+                            <p>Automated the deployment of AWS infrastructure using Terraform, following Infrastructure as Code (IaC) best practices. Provisioned EC2 instances behind an Application Load Balancer (ALB) to ensure scalability and high availability, and configured an Amazon S3 bucket for storage and application artifacts. Implemented secure networking using VPC, IAM roles, and Security Groups to enforce least-privilege access.</p>
+                            <p><strong>Tech Stack:</strong> Terraform, AWS EC2, Application Load Balancer (ALB), AWS S3, IAM, VPC, Security Groups, Infrastructure as Code</p>
+                        </div>
+                    </div>
 
-<section id="Badge&Certification">
-  <h2><i class="fas fa-certificate" style="margin-right: 6px;"></i>Badge & Certification</h2>
+                    <div style="margin-bottom: 25px;">
+                        <h2 style="color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 5px;">Badges & Certifications</h2>
+                        <ul style="list-style: disc; padding-left: 20px;">
+                            <li style="margin: 8px 0;">Cloud Foundations — Understanding of cloud concepts, AWS services, pricing, and basic security.</li>
+                            <li style="margin: 8px 0;">Cloud Security Builder — Knowledge of AWS security best practices, IAM, and cloud workload protection.</li>
+                            <li style="margin: 8px 0;">AWS Certified Developer – Associate — Certified in developing and deploying AWS applications using CI/CD and SDKs.</li>
+                            <li style="margin: 8px 0;">CCNA: Introduction to Networks — Fundamentals of networking, routing, switching, and network security.</li>
+                        </ul>
+                    </div>
 
-  <ul style="list-style: none; padding-left: 0;">
-    <li style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
-      <span><i class="fas fa-cloud" style="color: #3498db; margin-right: 8px;"></i><strong style="color: green;">Cloud Foundations</strong></span>
-      <a href="https://www.credly.com/badges/a195c5b5-f04e-478e-a889-91bcabeb24be/public_url" target="_blank">
-        <button style="padding: 6px 12px; background-color: #2980b9; color: white; border: none; border-radius: 4px;">View Certificate</button>
-      </a>
-    </li>
+                    <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 2px solid #eee;">
+                        <p style="color: #666; font-size: 0.9rem;">Last updated: January 2026</p>
+                    </div>
+                </div>
+            `;
 
-    <li style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
-      <span><i class="fas fa-shield-alt" style="color: #e67e22; margin-right: 8px;"></i><strong style="color: green;">Cloud Security Builder</strong></span>
-      <a href="https://www.credly.com/badges/78bef568-412c-4af6-9d8a-c68f06dfa2ae/public_url" target="_blank">
-        <button style="padding: 6px 12px; background-color: #2980b9; color: white; border: none; border-radius: 4px;">View Certificate</button>
-      </a>
-    </li>
+            modal.appendChild(content);
+            document.body.appendChild(modal);
 
-    <li style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
-      <span><i class="fas fa-code" style="color: #16a085; margin-right: 8px;"></i><strong style="color: green;">Cloud Developing</strong></span>
-      <a href="https://www.credly.com/badges/67db68d8-17f8-4e31-a649-273fc3e09ad8/public_url" target="_blank">
-        <button style="padding: 6px 12px; background-color: #2980b9; color: white; border: none; border-radius: 4px;">View Certificate</button>
-      </a>
-    </li>
+            // Close on outside click
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            });
+        }
 
-    <li style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
-      <span><i class="fab fa-aws" style="color: #f39c12; margin-right: 8px;"></i><strong style="color: green;">AWS Certified Developer Associate</strong></span>
-      <a href="https://www.credly.com/badges/326f51c2-ef96-44da-87fb-efca6c6c5f03/public_url" target="_blank">
-        <button style="padding: 6px 12px; background-color: #2980b9; color: white; border: none; border-radius: 4px;">View Certificate</button>
-      </a>
-    </li>
+        function downloadResume() {
+            // Create resume content as a formatted text
+            const resumeContent = `
+RAMIREDDY NAGA GANESH
+====================
+Location: KAKINADA
+Email: ramireddyganigani@gmail.com
+Phone: 9346660931
+Portfolio: [Your Portfolio URL]
+GitHub: NAGA GANESH RAMIREDDY
+LinkedIn: NAGA GANESH RAMIREDDY
 
-    <li style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
-      <span><i class="fas fa-network-wired" style="color: #8e44ad; margin-right: 8px;"></i><strong style="color:green;">CCNA: Introduction to Networks</strong></span>
-      <a href="https://www.credly.com/badges/e10428d2-3750-4a3c-8028-fa3120ce221f/public_url" target="_blank">
-        <button style="padding: 6px 12px; background-color: #2980b9; color: white; border: none; border-radius: 4px;">View Certificate</button>
-      </a>
-    </li>
+SUMMARY
+-------
+Motivated Computer Science student specializing in AWS Cloud and DevOps, skilled in managing cloud infrastructure, automating deployments, and implementing CI/CD pipelines using tools like AWS CloudFormation, Docker, Jenkins, and Git. Knowledgeable in system design, monitoring, and cost optimization, with experience deploying scalable applications and building reliable, secure cloud systems.
 
-    <li style="display: flex; justify-content: space-between; align-items: center;">
-      <span><i class="fab fa-linux" style="color: #2c3e50; margin-right: 8px;"></i><strong style="color: green;">Linux Unhatched</strong></span>
-      <a href="#" target="_blank">
-        <button style="padding: 6px 12px; background-color: #2980b9; color: white; border: none; border-radius: 4px;">View Certificate</button>
-      </a>
-    </li>
-  </ul>
-</section>
-<section id="internship">
-  <h2><i class="fas fa-briefcase" style="margin-right: 6px;"></i>Internship</h2>
-  <ul style="list-style: none; padding-left: 0;">
-    <li style="margin-bottom: 10px;">
-      <i class="fab fa-aws" style="color: #FF9900; margin-right: 8px;"></i>
-      <strong>AWS Developer Trainee</strong> – Gained hands-on experience with AWS services like EC2, Lambda, S3, IAM, and CloudWatch. Built and deployed scalable cloud applications using best practices.
-    </li>
-  </ul>
-</section>
+TECHNICAL SKILLS
+----------------
+• Cloud & Infrastructure: AWS (EC2, S3, RDS, IAM, Lambda, CloudFormation, CloudWatch)
+• DevOps & CI/CD: Jenkins, GitHub Actions, Docker, Kubernetes (basic)
+• Infrastructure as Code (IaC): Terraform, AWS CloudFormation
+• Monitoring & Observability: AWS CloudWatch, Prometheus, Grafana
+• Scripting & Automation: Python, Bash
+• Version Control: Git, GitHub, GitLab
+• Operating Systems: Linux (Ubuntu, Amazon Linux), Windows
 
-<section id="Education">
-  <h2><i class="fas fa-graduation-cap" style="margin-right: 6px;"></i>Education</h2>
-  <ul style="list-style: none; padding-left: 0;">
-    <li style="margin-bottom: 10px;">
-       <i class="fas fa-laptop-code" style="color: #16a085; margin-right: 8px;"></i>
-      <strong>B.Tech in CSE:</strong> Aditya University, Surampalem — <span style="color: green;"><strong>7.5 CGPA</strong></span> (2022–2026, Pursuing Final Year)
-    </li>
-    
-    <li style="margin-bottom: 10px;">
-      <i class="fas fa-university" style="color: #2980b9; margin-right: 8px;"></i>
-      <strong>Intermediate (MPC):</strong> Sri Pratibha Junior College, Ongole — <span style="color: green;"><strong>68.9%</strong></span> (Completed in 2022)
-    </li>
- <li style="margin-bottom: 10px;">
-      <i class="fas fa-school" style="color: #2c3e50; margin-right: 8px;"></i>
-      <strong>10th (SSC):</strong> ST. Arnold's High School, Medarametla — <span style="color: green;"><strong>70.1%</strong></span> (Completed in 2020)
-    </li>
-    
-  </ul>
-</section>
+EDUCATION
+---------
+Aditya University, Surampalem
+B.Tech in Computer Science and Engineering
+CGPA: 7.4/10
 
+PROJECTS & EXPERIENCE
+--------------------
+1. CI/CD Pipeline with GitHub Actions + AWS S3
+   • Developed a static web application using HTML, CSS, and JavaScript
+   • Implemented automated CI/CD pipeline using GitHub Actions
+   • Deployed application to AWS S3 as static website
+   • Configured IAM roles and S3 bucket policies for secure deployments
+   • Achieved consistent deployments by triggering pipeline on code commits
+   Tech Stack: HTML, CSS, JavaScript, GitHub Actions, AWS S3, IAM, CI/CD
 
+2. Terraform-Based AWS Infrastructure Automation
+   • Automated AWS infrastructure deployment using Terraform
+   • Provisioned EC2 instances behind Application Load Balancer (ALB)
+   • Configured Amazon S3 bucket for storage and artifacts
+   • Implemented secure networking using VPC, IAM, and Security Groups
+   Tech Stack: Terraform, AWS EC2, ALB, S3, IAM, VPC, Security Groups, IaC
 
-  
-  <section id="contact" class="contact">
-  <h2><i class="fas fa-envelope" style="margin-right: 6px;"></i>Contact Me</h2>
+BADGES & CERTIFICATIONS
+-----------------------
+• Cloud Foundations - Understanding of cloud concepts, AWS services, pricing, and security
+• Cloud Security Builder - Knowledge of AWS security best practices and IAM
+• AWS Certified Developer – Associate - Certified in AWS application development with CI/CD
+• CCNA: Introduction to Networks - Fundamentals of networking and security
 
-  <p><strong><i class="fas fa-phone" style="color: green; margin-right: 8px;"></i>Contact No:</strong> 9346660931</p>
+Last updated: January 2026
+            `.trim();
 
-  <p><strong><i class="fas fa-envelope" style="color: #D44638; margin-right: 8px;"></i>Email:</strong>
-    <a href="mailto:ramireddyganigani@gmail.com">ramireddyganigani@gmail.com</a>
-  </p>
+            // Create blob and download
+            const blob = new Blob([resumeContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Ramireddy_Naga_Ganesh_Resume.txt';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
 
-  <p>
-    <strong><i class="fab fa-linkedin" style="color: #0e76a8; margin-right: 8px;"></i>LinkedIn:</strong>
-    <a href="https://www.linkedin.com/in/naga-ganesh-ramireddy-b49654253"
-       target="_blank" style="color: #0e76a8; font-weight: bold;">
-      RAMIREDDY NAGA GANESH
-    </a>
-  </p>
-
-  <p>
-    <strong><i class="fab fa-github" style="color: #eae7e7; margin-right: 8px;"></i>GitHub:</strong>
-    <a href="https://github.com/NagaGaneshRamiReddy"
-       target="_blank" style="color: #124870; font-weight: bold;">
-      RAMIREDDY NAGA GANESH
-    </a>
-  </p>
-
- 
-</section>
-
-
-
-  
+            // Show success message
+            alert('Resume downloaded successfully!');
+        }
+    </script>
+</body>
+</html>
