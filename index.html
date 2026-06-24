@@ -1,1067 +1,473 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ramireddy Naga Ganesh - Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f4f4f4;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        body.dark-mode {
-            background: #0f0f0f;
-            color: #e0e0e0;
-        }
-
-        body.dark-mode section {
-            background: transparent;
-        }
-
-        body.dark-mode .about-content,
-        body.dark-mode .skill-category,
-        body.dark-mode .project-card,
-        body.dark-mode .cert-card,
-        body.dark-mode .timeline-item,
-        body.dark-mode #contact {
-            background: #1a1a1a;
-            color: #e0e0e0;
-            border-color: #333;
-        }
-
-        body.dark-mode .project-body p,
-        body.dark-mode .skill-category li,
-        body.dark-mode .timeline-item p,
-        body.dark-mode .contact-item {
-            color: #b0b0b0;
-        }
-
-        body.dark-mode .contact-item {
-            background: #222;
-        }
-
-        body.dark-mode h2,
-        body.dark-mode h3 {
-            color: #667eea;
-        }
-
-        body.dark-mode .section-subtitle {
-            color: #999;
-        }
-
-        body.dark-mode .timeline-item {
-            border-left-color: #333;
-        }
-
-        .theme-toggle {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 7px 25px rgba(0,0,0,0.4);
-        }
-
-        .theme-toggle:active {
-            transform: scale(0.95);
-        }
-
-        /* Header & Navigation */
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            transition: opacity 0.3s;
-            font-weight: 500;
-        }
-
-        nav a:hover {
-            opacity: 0.8;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 150px 2rem 100px;
-            text-align: center;
-            margin-top: 60px;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-
-        .btn {
-            padding: 12px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-            font-weight: 600;
-        }
-
-        .btn-primary {
-            background: white;
-            color: #667eea;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: #667eea;
-        }
-
-        /* Sections */
-        section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 2rem;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            color: #667eea;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-        }
-
-        /* About Section */
-        .about-content {
-            background: white;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-5px);
-        }
-
-        .skill-category h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        .skill-category ul {
-            list-style: none;
-        }
-
-        .skill-category li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .skill-category li:last-child {
-            border-bottom: none;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .project-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-        }
-
-        .project-header h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-body {
-            padding: 2rem;
-        }
-
-        .project-body p {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Certifications */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .cert-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            transition: all 0.3s;
-        }
-
-        .cert-card:hover {
-            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
-        }
-
-        .cert-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        /* Education & Internship */
-        .timeline {
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .timeline-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            position: relative;
-            padding-left: 3rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 2rem;
-            width: 15px;
-            height: 15px;
-            background: #667eea;
-            border-radius: 50%;
-        }
-
-        .timeline-item h3 {
-            color: #667eea;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-item .date {
-            color: #999;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Contact Section */
-        #contact {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .contact-item {
-            text-align: center;
-            padding: 2rem;
-            background: #f8f9ff;
-            border-radius: 10px;
-        }
-
-        .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .contact-item h3 {
-            color: #667eea;
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .contact-item a {
-            color: #666;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .contact-item a:hover {
-            color: #667eea;
-        }
-
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            nav ul {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            section {
-                padding: 60px 1rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramireddy Naga Ganesh - Portfolio</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height:1.6; color:#333; background:#f4f4f4; transition:background-color .3s,color .3s; }
+body.dark-mode { background:#0f0f0f; color:#e0e0e0; }
+body.dark-mode .about-content, body.dark-mode .skill-category, body.dark-mode .project-card,
+body.dark-mode .cert-card, body.dark-mode .timeline-item, body.dark-mode #contact,
+body.dark-mode .dsa-card, body.dark-mode .achievement-card { background:#1a1a1a; color:#e0e0e0; border-color:#333; }
+body.dark-mode .project-body p, body.dark-mode .skill-category li, body.dark-mode .timeline-item p,
+body.dark-mode .contact-item, body.dark-mode .dsa-table td { color:#b0b0b0; }
+body.dark-mode .contact-item { background:#222; }
+body.dark-mode h2, body.dark-mode h3 { color:#667eea; }
+body.dark-mode .section-subtitle { color:#999; }
+body.dark-mode .timeline-item { border-left-color:#333; }
+body.dark-mode .dsa-table th { background:#222; }
+body.dark-mode .dsa-table tr { border-color:#333; }
+
+.theme-toggle { position:fixed; bottom:30px; right:30px; width:60px; height:60px;
+  background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); border:none; border-radius:50%;
+  cursor:pointer; box-shadow:0 5px 20px rgba(0,0,0,.3); z-index:1000; display:flex;
+  align-items:center; justify-content:center; font-size:1.5rem; transition:transform .3s,box-shadow .3s; }
+.theme-toggle:hover { transform:scale(1.1); box-shadow:0 7px 25px rgba(0,0,0,.4); }
+.theme-toggle:active { transform:scale(.95); }
+
+header { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff; padding:1rem 0;
+  position:fixed; width:100%; top:0; z-index:1000; box-shadow:0 2px 10px rgba(0,0,0,.1); }
+nav { display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto; padding:0 2rem; }
+.logo { font-size:1.5rem; font-weight:bold; }
+nav ul { display:flex; list-style:none; gap:1.6rem; flex-wrap:wrap; }
+nav a { color:#fff; text-decoration:none; transition:opacity .3s; font-weight:500; font-size:.95rem; }
+nav a:hover { opacity:.8; }
+
+.hero { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff;
+  padding:150px 2rem 100px; text-align:center; margin-top:60px; }
+.hero h1 { font-size:3rem; margin-bottom:1rem; animation:fadeInUp 1s ease; }
+.hero p { font-size:1.3rem; margin-bottom:2rem; opacity:.9; animation:fadeInUp 1s ease .2s both; }
+.hero-buttons { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; animation:fadeInUp 1s ease .4s both; }
+.btn { padding:12px 30px; border:none; border-radius:50px; font-size:1rem; cursor:pointer;
+  transition:all .3s; text-decoration:none; display:inline-block; font-weight:600; }
+.btn-primary { background:#fff; color:#667eea; }
+.btn-primary:hover { transform:translateY(-2px); box-shadow:0 5px 15px rgba(0,0,0,.2); }
+.btn-secondary { background:transparent; color:#fff; border:2px solid #fff; }
+.btn-secondary:hover { background:#fff; color:#667eea; }
+
+section { max-width:1200px; margin:0 auto; padding:80px 2rem; }
+h2 { font-size:2.5rem; margin-bottom:2rem; text-align:center; color:#667eea; }
+.section-subtitle { text-align:center; color:#666; margin-bottom:3rem; font-size:1.1rem; }
+
+.about-content { background:#fff; padding:3rem; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,.1); line-height:1.8; font-size:1.1rem; }
+
+.skills-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2rem; }
+.skill-category { background:#fff; padding:2rem; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,.1); transition:transform .3s; }
+.skill-category:hover { transform:translateY(-5px); }
+.skill-category h3 { color:#667eea; margin-bottom:1rem; font-size:1.3rem; }
+.skill-category ul { list-style:none; }
+.skill-category li { padding:.5rem 0; border-bottom:1px solid #f0f0f0; }
+.skill-category li:last-child { border-bottom:none; }
+
+.projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:2rem; }
+.project-card { background:#fff; border-radius:15px; overflow:hidden; box-shadow:0 5px 20px rgba(0,0,0,.1); transition:transform .3s; }
+.project-card:hover { transform:translateY(-10px); }
+.project-header { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff; padding:2rem; }
+.project-header h3 { font-size:1.4rem; margin-bottom:.5rem; }
+.project-tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.6rem; }
+.project-tags span { background:rgba(255,255,255,.2); padding:3px 10px; border-radius:20px; font-size:.78rem; }
+.project-body { padding:2rem; }
+.project-body p { color:#666; margin-bottom:1rem; }
+
+/* DSA Section */
+.dsa-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; margin-bottom:2.5rem; }
+.dsa-card { background:#fff; padding:1.8rem; border-radius:15px; text-align:center; box-shadow:0 5px 20px rgba(0,0,0,.1); }
+.dsa-card .num { font-size:2.2rem; font-weight:700; color:#667eea; }
+.dsa-card .label { color:#666; margin-top:.4rem; font-size:.95rem; }
+.dsa-table-wrap { background:#fff; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,.1); overflow:hidden; }
+.dsa-table { width:100%; border-collapse:collapse; }
+.dsa-table th { background:#f8f9ff; color:#667eea; padding:1rem; text-align:left; font-size:.95rem; }
+.dsa-table td { padding:1rem; border-top:1px solid #eee; }
+.dsa-table a { color:#667eea; font-weight:600; text-decoration:none; }
+.dsa-table a:hover { text-decoration:underline; }
+.placeholder { color:#aa6; background:#fff8e1; border:1px dashed #e0c060; padding:2px 8px; border-radius:6px; font-size:.85em; }
+body.dark-mode .placeholder { background:#2a2410; border-color:#665a20; color:#e0c060; }
+
+/* Certifications */
+.cert-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
+.cert-card { background:#fff; padding:1.5rem; border-radius:10px; box-shadow:0 3px 15px rgba(0,0,0,.1);
+  display:flex; align-items:center; gap:1rem; transition:all .3s; }
+.cert-card:hover { box-shadow:0 5px 25px rgba(0,0,0,.15); }
+.cert-icon { width:50px; height:50px; background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold; flex-shrink:0; }
+
+/* Timeline (education/experience) */
+.timeline { position:relative; padding:2rem 0; }
+.timeline-item { background:#fff; padding:2rem; border-radius:15px; margin-bottom:2rem;
+  box-shadow:0 5px 20px rgba(0,0,0,.1); position:relative; padding-left:3rem; }
+.timeline-item::before { content:''; position:absolute; left:0; top:2rem; width:15px; height:15px; background:#667eea; border-radius:50%; }
+.timeline-item h3 { color:#667eea; margin-bottom:.5rem; }
+.timeline-item .date { color:#999; font-size:.9rem; margin-bottom:1rem; }
+
+/* Achievements */
+.achievements-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.5rem; }
+.achievement-card { background:#fff; padding:1.6rem; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,.1);
+  display:flex; gap:1rem; align-items:flex-start; }
+.achievement-card .ic { font-size:1.6rem; }
+
+#contact { background:#fff; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,.1); }
+.contact-info { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; margin-top:2rem; }
+.contact-item { text-align:center; padding:2rem; background:#f8f9ff; border-radius:10px; }
+.contact-icon { width:60px; height:60px; background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; color:#fff; font-size:1.5rem; }
+.contact-item h3 { color:#667eea; margin-bottom:.5rem; font-size:1.2rem; }
+.contact-item a { color:#666; text-decoration:none; transition:color .3s; }
+.contact-item a:hover { color:#667eea; }
+
+footer { background:#333; color:#fff; text-align:center; padding:2rem; }
+
+@keyframes fadeInUp { from{opacity:0;transform:translateY(30px);} to{opacity:1;transform:translateY(0);} }
+
+.mobile-menu-btn { display:none; background:none; border:none; color:#fff; font-size:1.5rem; cursor:pointer; }
+@media (max-width:768px){
+  .hero h1{font-size:2rem;} .hero p{font-size:1rem;} nav ul{display:none;}
+  .mobile-menu-btn{display:block;} h2{font-size:2rem;} section{padding:60px 1rem;}
+  .dsa-table{font-size:.85rem;}
+}
+</style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">RNG</div>
-            <ul id="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="mobile-menu-btn">☰</button>
-        </nav>
-    </header>
+<header>
+<nav>
+<div class="logo">RNG</div>
+<ul id="nav-menu">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#dsa">DSA</a></li>
+<li><a href="#certifications">Certifications</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#achievements">Achievements</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<button class="mobile-menu-btn">☰</button>
+</nav>
+</header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div style="margin-bottom: 2rem;">
-            <img src="https://mobile.technicalhub.io:5010/student/22MH1A0557.png" alt="Ramireddy Naga Ganesh" style="width: 180px; height: 180px; border-radius: 50%; border: 5px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.3); object-fit: cover;">
-        </div>
-        <h1>RAMIREDDY NAGA GANESH</h1>
-        <p>AWS Cloud Developer | Full Stack Developer | B.Tech CSE Student</p>
-        <p style="font-size: 1.1rem;">Passionate about building scalable, efficient solutions with cloud computing and modern web technologies</p>
-        <div class="hero-buttons">
-            <a href="#contact" class="btn btn-primary">Get In Touch</a>
-            <a href="#projects" class="btn btn-secondary">View Projects</a>
-            <a href="#" class="btn btn-primary" onclick="viewResume(); return false;">View Resume</a>
-            <a href="#" class="btn btn-secondary" onclick="downloadResume(); return false;">Download Resume</a>
-        </div>
-    </section>
+<section id="home" class="hero">
+<div style="margin-bottom:2rem;">
+<img src="https://mobile.technicalhub.io:5010/student/22MH1A0557.png" alt="Ramireddy Naga Ganesh" style="width:180px;height:180px;border-radius:50%;border:5px solid white;box-shadow:0 10px 30px rgba(0,0,0,.3);object-fit:cover;">
+</div>
+<h1>RAMIREDDY NAGA GANESH</h1>
+<p>AWS Developer | DevOps Enthusiast | Full Stack Developer | DSA Learner</p>
+<p style="font-size:1.1rem;">B.Tech CSE (2026) &middot; AWS Certified Developer – Associate &middot; Building scalable, cloud-native solutions</p>
+<div class="hero-buttons">
+<a href="#contact" class="btn btn-primary">Get In Touch</a>
+<a href="#projects" class="btn btn-secondary">View Projects</a>
+<a href="#" class="btn btn-primary" onclick="viewResume(); return false;">View Resume</a>
+<a href="#" class="btn btn-secondary" onclick="downloadResume(); return false;">Download Resume</a>
+</div>
+</section>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <div class="about-content">
-            <p>I am a final-year B.Tech CSE student at Aditya University with a strong interest in software development, cloud computing, and DevOps. I have hands-on experience in full-stack web development and building solutions using AWS services.</p>
-            <p>My programming expertise includes Java, Python, C, and C++, and I have a solid understanding of Computer Networks, Database Management Systems (DBMS), and System Design — including both High-Level Design (HLD) and Low-Level Design (LLD).</p>
-            <p>I enjoy solving real-world problems and working in collaborative environments, and I'm eager to grow as a Software Development Engineer (SDE). With experience as an AWS Cloud Developer, I aim to build scalable, efficient solutions that drive innovation in the tech industry.</p>
-        </div>
-    </section>
+<section id="about">
+<h2>About Me</h2>
+<div class="about-content">
+<p>Computer Science undergraduate (B.Tech, Aditya University, 2026 batch) with strong foundations in Data Structures & Algorithms, Java, AWS Cloud, and DevOps. Passionate about building scalable applications and cloud-native solutions, with hands-on experience in Docker, Terraform, CI/CD pipelines, and full-stack web development.</p>
+<p>Completed an internship at T-Hub working with core AWS services — Lambda, Cognito, VPC, IAM, and EC2 — and hold an AWS Certified Developer – Associate certification. Currently seeking Software Development Engineer, Cloud Engineering, DevOps, and SRE opportunities.</p>
+</div>
+</section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2>Skills & Experience</h2>
-        <p class="section-subtitle">Technical expertise across multiple domains</p>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>Frontend Development</h3>
-                <ul>
-                    <li>HTML5 & CSS3</li>
-                    <li>JavaScript (ES6+)</li>
-                    <li>React.js</li>
-                    <li>Bootstrap</li>
-                    <li>Tailwind CSS</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Backend Development</h3>
-                <ul>
-                    <li>Node.js</li>
-                    <li>Express.js</li>
-                    <li>RESTful APIs</li>
-                    <li>API Integration</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Database Management</h3>
-                <ul>
-                    <li>MySQL</li>
-                    <li>MongoDB</li>
-                    <li>PostgreSQL</li>
-                    <li>Firebase</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>AWS & Cloud</h3>
-                <ul>
-                    <li>EC2 & S3</li>
-                    <li>IAM & Lambda</li>
-                    <li>CloudWatch</li>
-                    <li>AWS CLI</li>
-                    <li>Cloud Architecture</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>DevOps Tools</h3>
-                <ul>
-                    <li>Git & GitHub</li>
-                    <li>CI/CD Pipelines</li>
-                    <li>Docker</li>
-                    <li>Linux</li>
-                    <li>Terraform</li>
-                    <li>Shell Scripting</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Programming & Core</h3>
-                <ul>
-                    <li>Java & Python</li>
-                    <li>C & C++</li>
-                    <li>Data Structures & Algorithms</li>
-                    <li>OOPs Concepts</li>
-                    <li>DBMS</li>
-                    <li>Computer Networks</li>
-                    <li>System Design (HLD & LLD)</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+<section id="skills">
+<h2>Skills & Experience</h2>
+<p class="section-subtitle">Technical expertise across multiple domains</p>
+<div class="skills-grid">
+<div class="skill-category"><h3>Programming</h3><ul>
+<li>Java</li><li>Python</li><li>JavaScript</li><li>C / C++</li><li>SQL</li>
+</ul></div>
+<div class="skill-category"><h3>Frontend</h3><ul>
+<li>HTML5 & CSS3</li><li>React.js</li><li>Bootstrap</li><li>Tailwind CSS</li>
+</ul></div>
+<div class="skill-category"><h3>Backend</h3><ul>
+<li>Node.js & Express.js</li><li>RESTful APIs</li><li>API Integration</li>
+</ul></div>
+<div class="skill-category"><h3>Databases</h3><ul>
+<li>MySQL</li><li>MongoDB</li><li>PostgreSQL</li><li>Firebase</li>
+</ul></div>
+<div class="skill-category"><h3>AWS & Cloud</h3><ul>
+<li>EC2 & S3</li><li>IAM & Lambda</li><li>VPC & Cognito</li><li>CloudWatch</li><li>CloudFormation</li>
+</ul></div>
+<div class="skill-category"><h3>DevOps</h3><ul>
+<li>Docker</li><li>Kubernetes (basics)</li><li>Jenkins</li><li>GitHub Actions</li><li>Terraform (IaC)</li><li>Linux & Shell Scripting</li>
+</ul></div>
+<div class="skill-category"><h3>Core CS</h3><ul>
+<li>Data Structures & Algorithms</li><li>OOPs Concepts</li><li>DBMS</li><li>Computer Networks</li><li>System Design (HLD & LLD)</li>
+</ul></div>
+</div>
+</section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects & Achievements</h2>
-        <p class="section-subtitle">Real-world applications showcasing my technical skills</p>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-header">
-                    <h3>Terraform AWS Infrastructure Project</h3>
-                </div>
-                <div class="project-body">
-                    <p>Automated deployment of AWS infrastructure using Terraform, including EC2 instances, an Application Load Balancer (ALB), and an S3 bucket. The project demonstrates Infrastructure as Code (IaC), scalable architecture, and secure cloud setup.</p>
-                    <p><strong>Key Features:</strong></p>
-                    <ul style="margin-left: 1.5rem; color: #666;">
-                        <li>Infrastructure as Code (IaC) implementation</li>
-                        <li>EC2 instances with auto-scaling</li>
-                        <li>Application Load Balancer configuration</li>
-                        <li>S3 bucket for storage management</li>
-                        <li>VPC and Security Groups setup</li>
-                        <li>IAM roles and policies</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary" style="margin-top: 1rem;">View Project</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-header">
-                    <h3>CI/CD Pipeline with GitHub Actions + AWS S3</h3>
-                </div>
-                <div class="project-body">
-                    <p>Developed a static web application using HTML, CSS, and JavaScript and implemented an automated CI/CD pipeline using GitHub Actions to deploy the application to AWS S3 as a static website.</p>
-                    <p><strong>Key Features:</strong></p>
-                    <ul style="margin-left: 1.5rem; color: #666;">
-                        <li>Automated CI/CD pipeline</li>
-                        <li>GitHub Actions integration</li>
-                        <li>AWS S3 static website hosting</li>
-                        <li>IAM roles and S3 bucket policies</li>
-                        <li>Secure automated deployments</li>
-                        <li>Trigger on code commits</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary" style="margin-top: 1rem;">View Project</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-header">
-                    <h3>E-Learning Website</h3>
-                </div>
-                <div class="project-body">
-                    <p>Built a fully responsive E-Learning web platform using HTML, CSS, JavaScript and React.js. Integrated public APIs and used custom-built form compilers for quizzes and user input.</p>
-                    <p><strong>Key Features:</strong></p>
-                    <ul style="margin-left: 1.5rem; color: #666;">
-                        <li>User authentication system</li>
-                        <li>Course enrollment management</li>
-                        <li>Real-time progress tracking</li>
-                        <li>Modular and reusable components</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary" style="margin-top: 1rem;">View Project</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-header">
-                    <h3>E-Commerce Platform</h3>
-                </div>
-                <div class="project-body">
-                    <p>Created a dynamic e-commerce site using MERN stack (MongoDB, Express, React, Node.js) with complete shopping functionality.</p>
-                    <p><strong>Key Features:</strong></p>
-                    <ul style="margin-left: 1.5rem; color: #666;">
-                        <li>Product filtering & search</li>
-                        <li>Shopping cart & checkout system</li>
-                        <li>Stripe payment integration</li>
-                        <li>Admin panel for management</li>
-                        <li>Order tracking & analytics</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary" style="margin-top: 1rem;">View Project</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-header">
-                    <h3>AI-Powered Chatbot</h3>
-                </div>
-                <div class="project-body">
-                    <p>Designed and developed an intelligent chatbot interface using React.js, JavaScript, HTML, and CSS with AI API integration.</p>
-                    <p><strong>Key Features:</strong></p>
-                    <ul style="margin-left: 1.5rem; color: #666;">
-                        <li>Real-time conversation</li>
-                        <li>Dynamic AI responses</li>
-                        <li>User-friendly UI with message bubbles</li>
-                        <li>Typing indicators</li>
-                        <li>Scalable architecture</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary" style="margin-top: 1rem;">View Project</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="projects">
+<h2>Projects & Achievements</h2>
+<p class="section-subtitle">Real-world applications showcasing my technical skills</p>
+<div class="projects-grid">
 
-    <!-- Certifications Section -->
-    <section id="certifications">
-        <h2>Badges & Certifications</h2>
-        <p class="section-subtitle">Professional certifications validating my expertise</p>
-        <div class="cert-grid">
-            <div class="cert-card">
-                <div class="cert-icon">☁️</div>
-                <div>
-                    <h4>Cloud Foundations</h4>
-                    <a href="#" style="color: #667eea; text-decoration: none;">View Certificate →</a>
-                </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon">🔒</div>
-                <div>
-                    <h4>Cloud Security Builder</h4>
-                    <a href="#" style="color: #667eea; text-decoration: none;">View Certificate →</a>
-                </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon">⚙️</div>
-                <div>
-                    <h4>Cloud Developing</h4>
-                    <a href="#" style="color: #667eea; text-decoration: none;">View Certificate →</a>
-                </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon">🎓</div>
-                <div>
-                    <h4>AWS Certified Developer Associate</h4>
-                    <a href="#" style="color: #667eea; text-decoration: none;">View Certificate →</a>
-                </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon">🌐</div>
-                <div>
-                    <h4>CCNA: Introduction to Networks</h4>
-                    <a href="#" style="color: #667eea; text-decoration: none;">View Certificate →</a>
-                </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon">🐧</div>
-                <div>
-                    <h4>Linux Unhatched</h4>
-                    <a href="#" style="color: #667eea; text-decoration: none;">View Certificate →</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="project-card">
+<div class="project-header"><h3>Terraform AWS Infrastructure</h3>
+<div class="project-tags"><span>Terraform</span><span>EC2</span><span>ALB</span><span>S3</span><span>VPC</span><span>IAM</span></div>
+</div>
+<div class="project-body">
+<p>Automated deployment of AWS infrastructure using Terraform — EC2 instances behind an Application Load Balancer, S3 for storage, and VPC/IAM/Security Groups for secure, least-privilege networking. Demonstrates full Infrastructure as Code practices.</p>
+</div>
+</div>
 
-    <!-- Internship & Education Section -->
-    <section id="education">
-        <h2>Education & Experience</h2>
-        
-        <h3 style="color: #667eea; margin-top: 3rem; margin-bottom: 1rem;">Internship</h3>
-        <div class="timeline">
-            <div class="timeline-item">
-                <h3>AWS Developer Trainee</h3>
-                <div class="date">Cloud Development Internship</div>
-                <p>Gained hands-on experience with AWS services like EC2, Lambda, S3, IAM, and CloudWatch. Built and deployed scalable cloud applications using industry best practices and cloud-native architecture patterns.</p>
-            </div>
-        </div>
+<div class="project-card">
+<div class="project-header"><h3>CI/CD Pipeline — GitHub Actions + AWS S3</h3>
+<div class="project-tags"><span>GitHub Actions</span><span>AWS S3</span><span>IAM</span><span>CI/CD</span></div>
+</div>
+<div class="project-body">
+<p>Built a static web app and an automated CI/CD pipeline that deploys it to AWS S3 as a static website on every commit, with IAM roles and bucket policies enforcing secure, repeatable deployments.</p>
+</div>
+</div>
 
-        <h3 style="color: #667eea; margin-top: 3rem; margin-bottom: 1rem;">Education</h3>
-        <div class="timeline">
-            <div class="timeline-item">
-                <h3>B.Tech in Computer Science & Engineering</h3>
-                <div class="date">Aditya University, Surampalem | 2022 – 2026 (Final Year)</div>
-                <p><strong>CGPA:</strong> 7.5/10</p>
-                <p>Specializing in software development, cloud computing, and system design with strong foundation in core CS subjects.</p>
-            </div>
-            <div class="timeline-item">
-                <h3>Intermediate (MPC)</h3>
-                <div class="date">Sri Pratibha Junior College, Ongole | 2022</div>
-                <p><strong>Percentage:</strong> 68.9%</p>
-            </div>
-            <div class="timeline-item">
-                <h3>10th Grade (SSC)</h3>
-                <div class="date">ST. Arnold's High School, Medarametla | 2020</div>
-                <p><strong>Percentage:</strong> 70.1%</p>
-            </div>
-        </div>
-    </section>
+<div class="project-card">
+<div class="project-header"><h3>E-Learning Platform</h3>
+<div class="project-tags"><span>React</span><span>AWS S3</span><span>JavaScript</span></div>
+</div>
+<div class="project-body">
+<p>Fully responsive e-learning web platform with course enrollment, real-time progress tracking, and modular reusable components, deployed on AWS S3.</p>
+</div>
+</div>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p class="section-subtitle">Let's connect and build something amazing together</p>
-        <div class="contact-info">
-            <div class="contact-item">
-                <div class="contact-icon">📱</div>
-                <h3>Phone</h3>
-                <a href="tel:+919346660931">+91 9346660931</a>
-            </div>
-            <div class="contact-item">
-                <div class="contact-icon">✉️</div>
-                <h3>Email</h3>
-                <a href="mailto:ramireddyganigani@gmail.com">ramireddyganigani@gmail.com</a>
-            </div>
-            <div class="contact-item">
-                <div class="contact-icon">💼</div>
-                <h3>LinkedIn</h3>
-                <a href="https://linkedin.com/in/ramireddy-naga-ganesh" target="_blank">RAMIREDDY NAGA GANESH</a>
-            </div>
-            <div class="contact-item">
-                <div class="contact-icon">💻</div>
-                <h3>GitHub</h3>
-                <a href="https://github.com/ramireddy-naga-ganesh" target="_blank">RAMIREDDY NAGA GANESH</a>
-            </div>
-        </div>
-    </section>
+<div class="project-card">
+<div class="project-header"><h3>AI Interview Platform</h3>
+<div class="project-tags"><span>React</span><span>Node.js</span><span>MongoDB Atlas</span><span>Gemini API</span></div>
+</div>
+<div class="project-body">
+<p>Full-stack AI-powered mock interview platform using the Gemini API/NLP for dynamic question generation and feedback, built on the MERN stack with MongoDB Atlas.</p>
+</div>
+</div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Ramireddy Naga Ganesh. All rights reserved.</p>
-        <p style="margin-top: 0.5rem; opacity: 0.8;">Built with passion for technology and innovation</p>
-    </footer>
+</div>
+</section>
 
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
-        <span id="theme-icon">🌙</span>
-    </button>
+<section id="dsa">
+<h2>DSA & Competitive Programming</h2>
+<p class="section-subtitle">Problem-solving practice and ratings</p>
+<div class="dsa-grid">
+<div class="dsa-card"><div class="num">5★</div><div class="label">HackerRank — Java</div></div>
+<div class="dsa-card"><div class="num">3★</div><div class="label">HackerRank — Python</div></div>
+<div class="dsa-card"><div class="num"><span class="placeholder">add count</span></div><div class="label">LeetCode Problems Solved</div></div>
+<div class="dsa-card"><div class="num"><span class="placeholder">add streak</span></div><div class="label">Current Streak</div></div>
+</div>
+<div class="dsa-table-wrap">
+<table class="dsa-table">
+<tr><th>Platform</th><th>Profile</th><th>Stats</th></tr>
+<tr><td>LeetCode</td><td><a href="#" target="_blank">your LeetCode profile</a></td><td><span class="placeholder">add problems solved</span></td></tr>
+<tr><td>HackerRank</td><td><a href="#" target="_blank">your HackerRank profile</a></td><td>Java 5★ · Python 3★</td></tr>
+<tr><td>Codeforces</td><td><a href="#" target="_blank">your Codeforces profile</a></td><td><span class="placeholder">add rating</span></td></tr>
+</table>
+</div>
+</section>
 
-    <script>
-        // Theme Toggle Function
-        function toggleTheme() {
-            const body = document.body;
-            const themeIcon = document.getElementById('theme-icon');
-            
-            body.classList.toggle('dark-mode');
-            
-            if (body.classList.contains('dark-mode')) {
-                themeIcon.textContent = '☀️';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeIcon.textContent = '🌙';
-                localStorage.setItem('theme', 'light');
-            }
-        }
+<section id="certifications">
+<h2>Badges & Certifications</h2>
+<p class="section-subtitle">Professional certifications validating my expertise</p>
+<div class="cert-grid">
+<div class="cert-card"><div class="cert-icon">🎓</div><div><h4>AWS Certified Developer – Associate</h4><a href="#">View Certificate →</a></div></div>
+<div class="cert-card"><div class="cert-icon">☁️</div><div><h4>Cloud Foundations</h4><a href="#">View Certificate →</a></div></div>
+<div class="cert-card"><div class="cert-icon">🔒</div><div><h4>Cloud Security Builder</h4><a href="#">View Certificate →</a></div></div>
+<div class="cert-card"><div class="cert-icon">⚙️</div><div><h4>Cloud Developing</h4><a href="#">View Certificate →</a></div></div>
+<div class="cert-card"><div class="cert-icon">🌐</div><div><h4>CCNA: Introduction to Networks</h4><a href="#">View Certificate →</a></div></div>
+<div class="cert-card"><div class="cert-icon">🐧</div><div><h4>Linux Unhatched</h4><a href="#">View Certificate →</a></div></div>
+</div>
+</section>
 
-        // Load saved theme on page load
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme');
-            const themeIcon = document.getElementById('theme-icon');
-            
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-mode');
-                themeIcon.textContent = '☀️';
-            }
-        });
+<section id="education">
+<h2>Education & Experience</h2>
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
+<h3 style="color:#667eea;margin-top:3rem;margin-bottom:1rem;">Internship</h3>
+<div class="timeline">
+<div class="timeline-item">
+<h3>Cloud Developer Intern — T-Hub</h3>
+<div class="date">Internship</div>
+<p>Worked hands-on with AWS services including Lambda, Cognito, VPC, IAM, and EC2, gaining practical experience in cloud-native architecture and deployment.</p>
+</div>
+</div>
 
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navMenu = document.getElementById('nav-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            if (navMenu.style.display === 'flex') {
-                navMenu.style.display = 'none';
-            } else {
-                navMenu.style.display = 'flex';
-                navMenu.style.flexDirection = 'column';
-                navMenu.style.position = 'absolute';
-                navMenu.style.top = '60px';
-                navMenu.style.right = '0';
-                navMenu.style.background = '#667eea';
-                navMenu.style.padding = '1rem';
-                navMenu.style.borderRadius = '10px';
-            }
-        });
+<h3 style="color:#667eea;margin-top:3rem;margin-bottom:1rem;">Education</h3>
+<div class="timeline">
+<div class="timeline-item">
+<h3>B.Tech in Computer Science & Engineering</h3>
+<div class="date">Aditya University, Surampalem (Hyderabad) | 2022 – 2026</div>
+<p><strong>CGPA:</strong> 7.5/10</p>
+<p>Specialized in software development, cloud computing, and system design with a strong foundation in core CS subjects.</p>
+</div>
+<div class="timeline-item">
+<h3>Intermediate (MPC)</h3>
+<div class="date">Sri Pratibha Junior College, Ongole | 2022</div>
+<p><strong>Percentage:</strong> 68.9%</p>
+</div>
+<div class="timeline-item">
+<h3>10th Grade (SSC)</h3>
+<div class="date">ST. Arnold's High School, Medarametla | 2020</div>
+<p><strong>Percentage:</strong> 70.1%</p>
+</div>
+</div>
+</section>
 
-        // Resume functions
-        function viewResume() {
-            // Create modal overlay
-            const modal = document.createElement('div');
-            modal.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.9);
-                z-index: 10000;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 20px;
-            `;
+<section id="achievements">
+<h2>Achievements</h2>
+<div class="achievements-grid">
+<div class="achievement-card"><div class="ic">🎓</div><div>AWS Certified Developer – Associate</div></div>
+<div class="achievement-card"><div class="ic">⭐</div><div>HackerRank 5★ in Java, 3★ in Python</div></div>
+<div class="achievement-card"><div class="ic">☁️</div><div>Hands-on AWS internship experience at T-Hub (Lambda, Cognito, VPC, IAM, EC2)</div></div>
+<div class="achievement-card"><div class="ic">🏗️</div><div>Built and deployed multiple cloud-native projects using Terraform, CI/CD, and AWS</div></div>
+<div class="achievement-card"><div class="ic">🧮</div><div><span class="placeholder">add DSA problem count / contest results</span></div></div>
+</div>
+</section>
 
-            const content = document.createElement('div');
-            content.style.cssText = `
-                background: white;
-                padding: 30px;
-                border-radius: 15px;
-                max-width: 900px;
-                width: 100%;
-                max-height: 90vh;
-                overflow-y: auto;
-                position: relative;
-            `;
+<section id="contact">
+<h2>Contact Me</h2>
+<p class="section-subtitle">Let's connect and build something amazing together</p>
+<div class="contact-info">
+<div class="contact-item"><div class="contact-icon">📱</div><h3>Phone</h3><a href="tel:+919346660931">+91 9346660931</a></div>
+<div class="contact-item"><div class="contact-icon">✉️</div><h3>Email</h3><a href="mailto:ramireddyganigani@gmail.com">ramireddyganigani@gmail.com</a></div>
+<div class="contact-item"><div class="contact-icon">💼</div><h3>LinkedIn</h3><a href="https://www.linkedin.com/in/naga-ganesh-ramireddy-b49654253/" target="_blank">Naga Ganesh Ramireddy</a></div>
+<div class="contact-item"><div class="contact-icon">💻</div><h3>GitHub</h3><a href="https://github.com/NagaGaneshRamiReddy" target="_blank">NagaGaneshRamiReddy</a></div>
+<div class="contact-item"><div class="contact-icon">🧮</div><h3>LeetCode</h3><a href="#" target="_blank">add your LeetCode link</a></div>
+</div>
+</section>
 
-            content.innerHTML = `
-                <button onclick="this.closest('div[style*=\"position: fixed\"]').remove()" style="position: absolute; top: 20px; right: 20px; background: #667eea; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 20px;">×</button>
-                <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-                    <div style="text-align: center; margin-bottom: 30px; border-bottom: 3px solid #667eea; padding-bottom: 20px;">
-                        <h1 style="color: #667eea; margin: 0; font-size: 2.5rem;">RAMIREDDY NAGA GANESH</h1>
-                        <p style="margin: 10px 0; color: #666;">
-                            📍 KAKINADA | 📧 ramireddyganigani@gmail.com | 📱 9346660931
-                        </p>
-                        <p style="margin: 5px 0;">
-                            <a href="https://github.com/NagaGaneshRamiReddy" style="color: #667eea; margin: 0 10px;">GitHub</a> |
-                            <a href="https://www.linkedin.com/in/naga-ganesh-ramireddy-b49654253/" style="color: #667eea; margin: 0 10px;">LinkedIn</a> |
-                            <a href="#" style="color: #667eea; margin: 0 10px;">Portfolio</a>
-                        </p>
-                    </div>
+<footer>
+<p>&copy; 2026 Ramireddy Naga Ganesh. All rights reserved.</p>
+<p style="margin-top:.5rem;opacity:.8;">Built with passion for technology and innovation</p>
+</footer>
 
-                    <div style="margin-bottom: 25px;">
-                        <h2 style="color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 5px;">Summary</h2>
-                        <p>Motivated Computer Science student specializing in AWS Cloud and DevOps, skilled in managing cloud infrastructure, automating deployments, and implementing CI/CD pipelines using tools like AWS CloudFormation, Docker, Jenkins, and Git. Knowledgeable in system design, monitoring, and cost optimization, with experience deploying scalable applications and building reliable, secure cloud systems.</p>
-                    </div>
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode"><span id="theme-icon">🌙</span></button>
 
-                    <div style="margin-bottom: 25px;">
-                        <h2 style="color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 5px;">Technical Skills</h2>
-                        <ul style="list-style: none; padding-left: 0;">
-                            <li style="margin: 8px 0;"><strong>Cloud & Infrastructure:</strong> AWS (EC2, S3, RDS, IAM, Lambda, CloudFormation, CloudWatch)</li>
-                            <li style="margin: 8px 0;"><strong>DevOps & CI/CD:</strong> Jenkins, GitHub Actions, Docker, Kubernetes (basic)</li>
-                            <li style="margin: 8px 0;"><strong>Infrastructure as Code (IaC):</strong> Terraform, AWS CloudFormation</li>
-                            <li style="margin: 8px 0;"><strong>Monitoring & Observability:</strong> AWS CloudWatch, Prometheus, Grafana</li>
-                            <li style="margin: 8px 0;"><strong>Scripting & Automation:</strong> Python, Bash</li>
-                            <li style="margin: 8px 0;"><strong>Version Control:</strong> Git, GitHub, GitLab</li>
-                            <li style="margin: 8px 0;"><strong>Operating Systems:</strong> Linux (Ubuntu, Amazon Linux), Windows</li>
-                        </ul>
-                    </div>
+<script>
+function toggleTheme(){
+  const body=document.body, icon=document.getElementById('theme-icon');
+  body.classList.toggle('dark-mode');
+  if(body.classList.contains('dark-mode')){ icon.textContent='☀️'; localStorage.setItem('theme','dark'); }
+  else { icon.textContent='🌙'; localStorage.setItem('theme','light'); }
+}
+window.addEventListener('DOMContentLoaded',()=>{
+  if(localStorage.getItem('theme')==='dark'){ document.body.classList.add('dark-mode'); document.getElementById('theme-icon').textContent='☀️'; }
+});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    const t=document.querySelector(this.getAttribute('href'));
+    if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+const mobileMenuBtn=document.querySelector('.mobile-menu-btn'), navMenu=document.getElementById('nav-menu');
+mobileMenuBtn.addEventListener('click',()=>{
+  if(navMenu.style.display==='flex'){ navMenu.style.display='none'; }
+  else {
+    navMenu.style.display='flex'; navMenu.style.flexDirection='column'; navMenu.style.position='absolute';
+    navMenu.style.top='60px'; navMenu.style.right='0'; navMenu.style.background='#667eea';
+    navMenu.style.padding='1rem'; navMenu.style.borderRadius='10px';
+  }
+});
 
-                    <div style="margin-bottom: 25px;">
-                        <h2 style="color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 5px;">Education</h2>
-                        <div style="margin: 10px 0;">
-                            <h3 style="margin: 5px 0; color: #333;">Aditya University, Surampalem</h3>
-                            <p style="margin: 5px 0;"><strong>B.Tech in Computer Science and Engineering</strong> | CGPA: 7.4/10</p>
-                        </div>
-                    </div>
+function viewResume(){
+  const modal=document.createElement('div');
+  modal.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);z-index:10000;display:flex;justify-content:center;align-items:center;padding:20px;';
+  const content=document.createElement('div');
+  content.style.cssText='background:#fff;padding:30px;border-radius:15px;max-width:900px;width:100%;max-height:90vh;overflow-y:auto;position:relative;';
+  content.innerHTML=`
+    <button onclick="this.closest('div[style*=\\'position: fixed\\']').remove()" style="position:absolute;top:20px;right:20px;background:#667eea;color:#fff;border:none;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:20px;">×</button>
+    <div style="font-family:Arial,sans-serif;line-height:1.6;color:#333;">
+      <div style="text-align:center;margin-bottom:30px;border-bottom:3px solid #667eea;padding-bottom:20px;">
+        <h1 style="color:#667eea;margin:0;font-size:2.3rem;">RAMIREDDY NAGA GANESH</h1>
+        <p style="margin:10px 0;color:#666;">📍 Hyderabad | 📧 ramireddyganigani@gmail.com | 📱 9346660931</p>
+        <p style="margin:5px 0;">
+          <a href="https://github.com/NagaGaneshRamiReddy" style="color:#667eea;margin:0 10px;">GitHub</a> |
+          <a href="https://www.linkedin.com/in/naga-ganesh-ramireddy-b49654253/" style="color:#667eea;margin:0 10px;">LinkedIn</a>
+        </p>
+      </div>
+      <div style="margin-bottom:25px;">
+        <h2 style="color:#667eea;border-bottom:2px solid #667eea;padding-bottom:5px;">Summary</h2>
+        <p>Computer Science undergraduate specializing in AWS Cloud and DevOps, skilled in cloud infrastructure management, deployment automation, and CI/CD pipelines using AWS CloudFormation, Docker, Jenkins, and Git. Experienced in deploying scalable, secure cloud systems.</p>
+      </div>
+      <div style="margin-bottom:25px;">
+        <h2 style="color:#667eea;border-bottom:2px solid #667eea;padding-bottom:5px;">Technical Skills</h2>
+        <ul style="list-style:none;padding-left:0;">
+          <li style="margin:8px 0;"><strong>Cloud:</strong> AWS (EC2, S3, RDS, IAM, Lambda, Cognito, VPC, CloudFormation, CloudWatch)</li>
+          <li style="margin:8px 0;"><strong>DevOps:</strong> Docker, Jenkins, GitHub Actions, Terraform, Kubernetes (basics)</li>
+          <li style="margin:8px 0;"><strong>Programming:</strong> Java, Python, JavaScript, C/C++</li>
+          <li style="margin:8px 0;"><strong>Web:</strong> React.js, Node.js, MongoDB, MERN stack</li>
+          <li style="margin:8px 0;"><strong>Other:</strong> Linux, Git/GitHub, DSA</li>
+        </ul>
+      </div>
+      <div style="margin-bottom:25px;">
+        <h2 style="color:#667eea;border-bottom:2px solid #667eea;padding-bottom:5px;">Education</h2>
+        <p><strong>Aditya University, Surampalem</strong> — B.Tech CSE | CGPA: 7.5/10 | 2022–2026</p>
+      </div>
+      <div style="margin-bottom:25px;">
+        <h2 style="color:#667eea;border-bottom:2px solid #667eea;padding-bottom:5px;">Projects</h2>
+        <p><strong>Terraform AWS Infrastructure</strong> — EC2, ALB, S3, VPC, IAM automation via IaC.</p>
+        <p><strong>CI/CD Pipeline (GitHub Actions + S3)</strong> — automated static site deployment.</p>
+        <p><strong>AI Interview Platform</strong> — React, Node.js, MongoDB Atlas, Gemini API.</p>
+        <p><strong>E-Learning Platform</strong> — React, deployed on AWS S3.</p>
+      </div>
+      <div style="margin-bottom:25px;">
+        <h2 style="color:#667eea;border-bottom:2px solid #667eea;padding-bottom:5px;">Certifications</h2>
+        <ul style="padding-left:20px;">
+          <li style="margin:8px 0;">AWS Certified Developer – Associate</li>
+          <li style="margin:8px 0;">Cloud Foundations</li>
+          <li style="margin:8px 0;">Cloud Security Builder</li>
+          <li style="margin:8px 0;">CCNA: Introduction to Networks</li>
+        </ul>
+      </div>
+    </div>`;
+  modal.appendChild(content);
+  document.body.appendChild(modal);
+  modal.addEventListener('click',(e)=>{ if(e.target===modal) modal.remove(); });
+}
 
-                    <div style="margin-bottom: 25px;">
-                        <h2 style="color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 5px;">Projects & Experience</h2>
-                        
-                        <div style="margin: 20px 0;">
-                            <h3 style="color: #333; margin: 10px 0;">1. CI/CD Pipeline with GitHub Actions + AWS S3</h3>
-                            <p>Developed a static web application using HTML, CSS, and JavaScript and implemented an automated CI/CD pipeline using GitHub Actions to deploy the application to AWS S3 as a static website. Configured IAM roles and S3 bucket policies to enable secure, automated deployments. Achieved consistent and repeatable deployments by triggering the pipeline on every code commit.</p>
-                            <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript, GitHub Actions, AWS S3, IAM, CI/CD</p>
-                        </div>
-
-                        <div style="margin: 20px 0;">
-                            <h3 style="color: #333; margin: 10px 0;">2. Terraform-Based AWS Infrastructure Automation</h3>
-                            <p>Automated the deployment of AWS infrastructure using Terraform, following Infrastructure as Code (IaC) best practices. Provisioned EC2 instances behind an Application Load Balancer (ALB) to ensure scalability and high availability, and configured an Amazon S3 bucket for storage and application artifacts. Implemented secure networking using VPC, IAM roles, and Security Groups to enforce least-privilege access.</p>
-                            <p><strong>Tech Stack:</strong> Terraform, AWS EC2, Application Load Balancer (ALB), AWS S3, IAM, VPC, Security Groups, Infrastructure as Code</p>
-                        </div>
-                    </div>
-
-                    <div style="margin-bottom: 25px;">
-                        <h2 style="color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 5px;">Badges & Certifications</h2>
-                        <ul style="list-style: disc; padding-left: 20px;">
-                            <li style="margin: 8px 0;">Cloud Foundations — Understanding of cloud concepts, AWS services, pricing, and basic security.</li>
-                            <li style="margin: 8px 0;">Cloud Security Builder — Knowledge of AWS security best practices, IAM, and cloud workload protection.</li>
-                            <li style="margin: 8px 0;">AWS Certified Developer – Associate — Certified in developing and deploying AWS applications using CI/CD and SDKs.</li>
-                            <li style="margin: 8px 0;">CCNA: Introduction to Networks — Fundamentals of networking, routing, switching, and network security.</li>
-                        </ul>
-                    </div>
-
-                    <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 2px solid #eee;">
-                        <p style="color: #666; font-size: 0.9rem;">Last updated: January 2026</p>
-                    </div>
-                </div>
-            `;
-
-            modal.appendChild(content);
-            document.body.appendChild(modal);
-
-            // Close on outside click
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.remove();
-                }
-            });
-        }
-
-        function downloadResume() {
-            // Create resume content as a formatted text
-            const resumeContent = `
+function downloadResume(){
+  const resumeContent = `
 RAMIREDDY NAGA GANESH
 ====================
-Location: KAKINADA
+Location: Hyderabad, India
 Email: ramireddyganigani@gmail.com
 Phone: 9346660931
-Portfolio: [Your Portfolio URL]
-GitHub: NAGA GANESH RAMIREDDY
-LinkedIn: NAGA GANESH RAMIREDDY
+GitHub: github.com/NagaGaneshRamiReddy
+LinkedIn: linkedin.com/in/naga-ganesh-ramireddy-b49654253
 
 SUMMARY
 -------
-Motivated Computer Science student specializing in AWS Cloud and DevOps, skilled in managing cloud infrastructure, automating deployments, and implementing CI/CD pipelines using tools like AWS CloudFormation, Docker, Jenkins, and Git. Knowledgeable in system design, monitoring, and cost optimization, with experience deploying scalable applications and building reliable, secure cloud systems.
+Computer Science undergraduate specializing in AWS Cloud and DevOps, skilled in cloud infrastructure management, deployment automation, and CI/CD pipelines. AWS Certified Developer - Associate.
 
 TECHNICAL SKILLS
 ----------------
-• Cloud & Infrastructure: AWS (EC2, S3, RDS, IAM, Lambda, CloudFormation, CloudWatch)
-• DevOps & CI/CD: Jenkins, GitHub Actions, Docker, Kubernetes (basic)
-• Infrastructure as Code (IaC): Terraform, AWS CloudFormation
-• Monitoring & Observability: AWS CloudWatch, Prometheus, Grafana
-• Scripting & Automation: Python, Bash
-• Version Control: Git, GitHub, GitLab
-• Operating Systems: Linux (Ubuntu, Amazon Linux), Windows
+• Cloud: AWS (EC2, S3, RDS, IAM, Lambda, Cognito, VPC, CloudFormation, CloudWatch)
+• DevOps: Docker, Jenkins, GitHub Actions, Terraform, Kubernetes (basics)
+• Programming: Java, Python, JavaScript, C/C++
+• Web: React.js, Node.js, MongoDB, MERN stack
+• Other: Linux, Git/GitHub, Data Structures & Algorithms
 
 EDUCATION
 ---------
-Aditya University, Surampalem
-B.Tech in Computer Science and Engineering
-CGPA: 7.4/10
+Aditya University, Surampalem - B.Tech CSE, CGPA 7.5/10 (2022-2026)
 
-PROJECTS & EXPERIENCE
---------------------
-1. CI/CD Pipeline with GitHub Actions + AWS S3
-   • Developed a static web application using HTML, CSS, and JavaScript
-   • Implemented automated CI/CD pipeline using GitHub Actions
-   • Deployed application to AWS S3 as static website
-   • Configured IAM roles and S3 bucket policies for secure deployments
-   • Achieved consistent deployments by triggering pipeline on code commits
-   Tech Stack: HTML, CSS, JavaScript, GitHub Actions, AWS S3, IAM, CI/CD
+PROJECTS
+--------
+1. Terraform AWS Infrastructure - EC2, ALB, S3, VPC, IAM via Infrastructure as Code
+2. CI/CD Pipeline (GitHub Actions + S3) - automated static site deployment
+3. AI Interview Platform - React, Node.js, MongoDB Atlas, Gemini API
+4. E-Learning Platform - React, deployed on AWS S3
 
-2. Terraform-Based AWS Infrastructure Automation
-   • Automated AWS infrastructure deployment using Terraform
-   • Provisioned EC2 instances behind Application Load Balancer (ALB)
-   • Configured Amazon S3 bucket for storage and artifacts
-   • Implemented secure networking using VPC, IAM, and Security Groups
-   Tech Stack: Terraform, AWS EC2, ALB, S3, IAM, VPC, Security Groups, IaC
-
-BADGES & CERTIFICATIONS
------------------------
-• Cloud Foundations - Understanding of cloud concepts, AWS services, pricing, and security
-• Cloud Security Builder - Knowledge of AWS security best practices and IAM
-• AWS Certified Developer – Associate - Certified in AWS application development with CI/CD
-• CCNA: Introduction to Networks - Fundamentals of networking and security
-
-Last updated: January 2026
-            `.trim();
-
-            // Create blob and download
-            const blob = new Blob([resumeContent], { type: 'text/plain' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'Ramireddy_Naga_Ganesh_Resume.txt';
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
-            document.body.removeChild(a);
-
-            // Show success message
-            alert('Resume downloaded successfully!');
-        }
-    </script>
+CERTIFICATIONS
+---------------
+• AWS Certified Developer - Associate
+• Cloud Foundations
+• Cloud Security Builder
+• CCNA: Introduction to Networks
+  `.trim();
+  const blob=new Blob([resumeContent],{type:'text/plain'});
+  const url=window.URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url; a.download='Ramireddy_Naga_Ganesh_Resume.txt';
+  document.body.appendChild(a); a.click();
+  window.URL.revokeObjectURL(url); document.body.removeChild(a);
+  alert('Resume downloaded successfully!');
+}
+</script>
 </body>
 </html>
-
